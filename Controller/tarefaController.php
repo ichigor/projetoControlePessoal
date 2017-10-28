@@ -30,7 +30,6 @@ if ($funcionalidade == "create") {
 
     $_SESSION["success"] = "Sua tarefa foi criada com sucesso ! ! !";
     header("Location: ../view/principalGerente.php");
-    die();
 
 } elseif ($funcionalidade == "update") {
 
@@ -53,27 +52,27 @@ if ($funcionalidade == "create") {
 
 } elseif ($funcionalidade == "delete") {
     $idTarefa = $_POST["idTarefa"];
-    $_SESSION["warning"] = "A tarefa selecionado foi cancelada com sucesso ! ! !";
+    $_SESSION["warning"] = "A tarefa selecionada foi cancelada com sucesso ! ! !";
     cancelarTarefa($conexao, $idTarefa);
     header("Location: ../view/listarTarefas.php");
 } elseif ($funcionalidade == "completed") {
     $idTarefa = $_POST["idTarefa"];
-    $_SESSION["success"] = "A tarefa selecionado foi concluida com sucesso ! ! !";
+    $_SESSION["success"] = "A tarefa selecionada foi concluida com sucesso ! ! !";
     concluirTarefa($conexao, $idTarefa);
     header("Location: ../view/avaliarTarefas.php");
 } elseif ($funcionalidade == "incomplete") {
     $idTarefa = $_POST["idTarefa"];
-    $_SESSION["warning"] = "A tarefa selecionado foi definida como não concluida ! ! !";
+    $_SESSION["warning"] = "A tarefa selecionada foi definida como não concluida ! ! !";
     naoConcluirTarefa($conexao, $idTarefa);
     header("Location: ../view/avaliarTarefas.php");
 } elseif ($funcionalidade == "avaliation") {
     $idTarefa = $_POST["idTarefa"];
-    $_SESSION["success"] = "A tarefa selecionado foi enviada para ser avaliada ! ! !";
+    $_SESSION["success"] = "A tarefa selecionada foi enviada para ser avaliada ! ! !";
     enviarParaAvalicao($conexao, $idTarefa);
     header("Location: ../view/principalColaborador.php");
 } elseif ($funcionalidade == "reavaliation") {
     $idTarefa = $_POST["idTarefa"];
-    $_SESSION["success"] = "A tarefa selecionado foi enviada para ser reavaliada ! ! !";
+    $_SESSION["success"] = "A tarefa selecionada foi enviada para ser reavaliada ! ! !";
     enviarParaAvalicao($conexao, $idTarefa);
     header("Location: ../view/reavaliarTarefas.php");
 }

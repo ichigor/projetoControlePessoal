@@ -11,6 +11,7 @@ $template = new templateController();
 $template->template();
 require_once "../DAO/membroDAO.php";
 ?>
+<?php mostraAlerta("success");?>
     <div class="col-md-12">
     <h1>Recuperar Membro</h1>
     <div class="box box-danger">

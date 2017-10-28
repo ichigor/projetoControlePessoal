@@ -33,56 +33,56 @@ $dado = buscaMembro($conexao, $idUsuario);
                 <div class="form-group ">
                     <label for="cpf" class="col-sm-2 control-label">CPF</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="cpf" placeholder="CPF" disabled data-inputmask='"mask": "(999) 999-9999"' data-mask value="<?=$dado['cpf'] ?>">
+                        <input type="text" class="form-control" name="cpf" placeholder="CPF" disabled data-inputmask='"mask": "(999) 999-9999"' data-mask value="<?=$dado['cpf'] ?>" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="nome" class="col-sm-2 control-label">Nome</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo" value="<?=$dado['nome'] ?>">
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo" value="<?=$dado['nome'] ?>" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="usuario" class="col-sm-2 control-label">Usuario</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario para acessar o sistema" value="<?=$dado['usuario'] ?>">
+                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario para acessar o sistema" value="<?=$dado['usuario'] ?>" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="senha" class="col-sm-2 control-label">Senha</label>
                     <div class="col-sm-8">
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" >
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="rg" class="col-sm-2 control-label">RG</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="rg" name="rg" placeholder="RG" value="<?=$dado['rg'] ?>">
+                        <input type="text" class="form-control" id="rg" name="rg" placeholder="RG" value="<?=$dado['rg'] ?>" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-8">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?=$dado['email'] ?>">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?=$dado['email'] ?>" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="celular" class="col-sm-2 control-label">Celular</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" value="<?=$dado['celular'] ?>">
+                        <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" value="<?=$dado['celular'] ?>" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="telefone" class="col-sm-2 control-label">Telefone Fixo</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Telefone Fixo" name="telefone" data-inputmask='"mask": "(999) 999-9999"' data-mask value="<?=$dado['telefone'] ?>">
+                        <input type="text" class="form-control" placeholder="Telefone Fixo" name="telefone" data-inputmask='"mask": "(999) 999-9999"' data-mask value="<?=$dado['telefone'] ?>" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="endereco" class="col-sm-2 control-label">Endereço</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Endereço" name="endereco" value="<?=$dado['endereco'] ?>">
+                        <input type="text" class="form-control" placeholder="Endereço" name="endereco" value="<?=$dado['endereco'] ?>" required>
                     </div>
                 </div>
 
@@ -91,14 +91,14 @@ $dado = buscaMembro($conexao, $idUsuario);
                     <label for="funcao" class="col-sm-2 control-label">Função</label>
                     <div class="col-sm-8">
                         <label>
-                            <input type="radio" name="tipo" class="icheckbox_flat-red" checked value="1">
+                            <input type="radio" name="tipo" class="icheckbox_flat-red" checked value="Gerente">
                         </label>
                         <label>
                             Gerente
                         </label>
                         <br>
                         <label>
-                            <input type="radio" name="tipo" class="icheckbox_flat-red" value="0">
+                            <input type="radio" name="tipo" class="icheckbox_flat-red" value="Colaborador">
                         </label>
                         <label>
                             Colaborador
@@ -108,7 +108,7 @@ $dado = buscaMembro($conexao, $idUsuario);
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
+                <button type="button" onclick="goBack()" class="btn btn-default">Cancelar</button>
                 <button type="submit" class="btn btn-success pull-right">Alterar</button>
             </div>
             <!-- /.box-footer -->

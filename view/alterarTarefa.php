@@ -30,7 +30,7 @@ $dado = buscaTarefa($conexao, $idTarefa);
                     <div class="form-group ">
                         <label for="nomeTarefa" class="col-sm-2 control-label">Nome Tarefa</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="nomeTarefa" placeholder="Nome da Tarefa" value="<?= $dado['nomeTarefa'] ?>">
+                            <input type="text" class="form-control" name="nomeTarefa" placeholder="Nome da Tarefa" value="<?= $dado['nomeTarefa'] ?>" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -64,7 +64,7 @@ $dado = buscaTarefa($conexao, $idTarefa);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" value="<?= $dado['dataInicial'] ?>">
+                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" value="<?= $dado['dataInicial'] ?>" required>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@ $dado = buscaTarefa($conexao, $idTarefa);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" value="<?= $dado['dataFinal'] ?>">
+                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" value="<?= $dado['dataFinal'] ?>" required>
                             </div>
                         </div>
                     </div>
@@ -86,14 +86,14 @@ $dado = buscaTarefa($conexao, $idTarefa);
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Descrição</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" rows="8" placeholder="Digite a descrição do que precisa ser realizado" name="descricao"><?= $dado['descricao'] ?></textarea>
+                            <textarea class="form-control" rows="8" placeholder="Digite a descrição do que precisa ser realizado" name="descricao" required><?= $dado['descricao'] ?></textarea>
                         </div>
                     </div>
 
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-default">Cancelar</button>
+                    <button type="button" onclick="goBack()" class="btn btn-default">Cancelar</button>
                     <button type="submit" class="btn btn-success pull-right">Alterar</button>
                 </div>
                 <!-- /.box-footer -->

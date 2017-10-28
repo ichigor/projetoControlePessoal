@@ -26,7 +26,7 @@ $template->template();
                     <div class="form-group ">
                         <label for="nomeTarefa" class="col-sm-2 control-label">Nome Tarefa</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="nomeTarefa" placeholder="Nome da Tarefa">
+                            <input type="text" class="form-control" name="nomeTarefa" placeholder="Nome da Tarefa" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -60,7 +60,7 @@ $template->template();
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial">
+                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" required>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ $template->template();
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal">
+                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" required>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ $template->template();
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Descrição</label>
                         <div class="col-sm-8">
-                        <textarea class="form-control" rows="8" placeholder="Digite a descrição do que precisa ser realizado" name="descricao"></textarea>
+                        <textarea class="form-control" rows="8" placeholder="Digite a descrição do que precisa ser realizado" name="descricao" required></textarea>
                         </div>
                     </div>
 

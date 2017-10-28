@@ -11,6 +11,8 @@ $template = new templateController();
 $template->template();
 require_once "../DAO/membroDAO.php";
 ?>
+<?php mostraAlerta("success");
+mostraAlerta("warning");?>
     <div class="col-md-12">
     <h1>Lista de Membros</h1>
 

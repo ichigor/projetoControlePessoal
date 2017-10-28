@@ -8,6 +8,7 @@
 
 require_once "../model/Membro.php";
 require_once  "../DAO/membroDAO.php";
+require_once "../util/mostraAlerta.php";
 
 $funcionalidade = $_POST["funcionalidade"];
 
@@ -29,6 +30,7 @@ if($funcionalidade == "create"){
 
     insereMembro($conexao, $m);
 
+    $_SESSION["success"] = "Membro cadastrado com sucesso ! ! !";
     header("Location: ../view/principalGerente.php");
 
 }elseif ($funcionalidade == "update"){
@@ -50,6 +52,7 @@ if($funcionalidade == "create"){
 
     alteraMembro($conexao, $m, $idUsuario);
 
+    $_SESSION["success"] = "Membro alterado com sucesso ! ! !";
     header("Location: ../view/listarMembros.php");
 
 }elseif ($funcionalidade == "list"){
@@ -57,10 +60,12 @@ if($funcionalidade == "create"){
 }elseif ($funcionalidade == "delete"){
     $idUsuario = $_POST["idUsuario"];
     inativarMembro($conexao, $idUsuario);
+    $_SESSION["warning"] = "Membro inativado com sucesso ! ! !";
     header("Location: ../view/listarMembros.php");
 }elseif ($funcionalidade == "active"){
     $idUsuario = $_POST["idUsuario"];
     ativarMembro($conexao, $idUsuario);
+    $_SESSION["success"] = "Membro recuperado com sucesso ! ! !";
     header("Location: ../view/recuperarMembro.php");
 }
 
