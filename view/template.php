@@ -130,6 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li><a href="listarTarefas.php">Listar Tarefas</a></li>
                         <li><a href="historicoTarefas.php">Historico Tarefas</a></li>
                         <li><a href="avaliarTarefas.php">Avaliar Tarefas</a></li>
+                        <li><a href="reavaliarTarefas.php">Reavaliar Tarefa</a></li>
                     </ul>
                 </li>
             </ul>

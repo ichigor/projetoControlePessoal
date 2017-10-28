@@ -105,3 +105,12 @@ function buscaTarefaNaoCancelada($conexao)
     return $tarefas;
 }
 
+function buscaTarefasAvaliadas($conexao)
+{
+    $tarefas = array();
+    $resultado = mysqli_query($conexao, "select * from tarefa where status = 'Completo' OR status = 'Incompleto'");
+    while ($tarefa = mysqli_fetch_assoc($resultado)) {
+        array_push($tarefas, $tarefa);
+    }
+    return $tarefas;
+}

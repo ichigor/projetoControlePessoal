@@ -71,10 +71,9 @@ if ($funcionalidade == "create") {
     $_SESSION["success"] = "A tarefa selecionado foi enviada para ser avaliada ! ! !";
     enviarParaAvalicao($conexao, $idTarefa);
     header("Location: ../view/principalColaborador.php");
+} elseif ($funcionalidade == "reavaliation") {
+    $idTarefa = $_POST["idTarefa"];
+    $_SESSION["success"] = "A tarefa selecionado foi enviada para ser reavaliada ! ! !";
+    enviarParaAvalicao($conexao, $idTarefa);
+    header("Location: ../view/reavaliarTarefas.php");
 }
-//fazer uma mais para reavaliar
-//fazer uma mais para reavaliar
-//fazer uma mais para reavaliar
-//fazer uma mais para reavaliar
-//fazer uma mais para reavaliar
-//fazer uma mais para reavaliar
