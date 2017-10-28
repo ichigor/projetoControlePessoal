@@ -11,6 +11,7 @@ require_once "../Controller/templateController.php";
 $template = new templateController();
 
 $template ->templateColaborador();
+$template ->menuMembrosColaborador();
 require_once "../DAO/membroDAO.php";
 ?>
     <div class="col-md-12">

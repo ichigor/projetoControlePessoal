@@ -11,6 +11,7 @@ require_once "../Controller/templateController.php";
 $template = new templateController();
 
 $template ->templateColaborador();
+$template ->menuTarefasColaborador();
 require_once "../DAO/tarefaDAO.php";
 
 $idTarefa=$_GET['idTarefa'];

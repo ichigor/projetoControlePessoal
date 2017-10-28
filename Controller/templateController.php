@@ -27,4 +27,14 @@ class templateController{
         include "../view/menuTarefas.php";
     }
 
+    public function menuHomeColaborador(){
+        include "../view/menuHomeColaborador.php";
+    }
+    public function menuMembrosColaborador(){
+        include "../view/menuMembrosColaborador.php";
+    }
+    public function menuTarefasColaborador(){
+        include "../view/menuTarefasColaborador.php";
+    }
+
 }
