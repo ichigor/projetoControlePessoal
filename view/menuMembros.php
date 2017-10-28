@@ -10,7 +10,7 @@
               </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="CadastrarMembros.php">Cadastrar Membro</a></li>
+            <li><a href="cadastrarMembros.php">Cadastrar Membro</a></li>
             <li><a href="listarMembros.php">Listar Membros</a></li>
             <li><a href="recuperarMembro.php">Recuperar Membro</a></li>
         </ul>
