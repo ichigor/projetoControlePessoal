@@ -2,6 +2,7 @@
 require_once "../Controller/templateController.php";
 $template = new templateController();
 $template->template();
+$template->menuMembros();
 ?>
 
     <div class="col-md-12">

@@ -16,4 +16,15 @@ class templateController{
     public function templateColaborador(){
         include "../view/templateColaborador.php";
     }
+    public function menuHome(){
+        include "../view/menuHome.php";
+    }
+    public function menuMembros(){
+        include "../view/menuMembros.php";
+    }
+
+    public function menuTarefas(){
+        include "../view/menuTarefas.php";
+    }
+
 }

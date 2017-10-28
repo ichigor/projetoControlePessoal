@@ -9,6 +9,7 @@
 require_once "../Controller/templateController.php";
 $template = new templateController();
 $template->template();
+$template->menuTarefas();
 require_once "../DAO/tarefaDAO.php";
 
 $idTarefa=$_GET['idTarefa'];

@@ -12,6 +12,7 @@ require_once "../Controller/templateController.php";
 $template = new templateController();
 
 $template->template();
+$template->menuHome();
 
 require_once "../DAO/tarefaDAO.php";
 ?>

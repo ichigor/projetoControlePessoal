@@ -9,6 +9,7 @@
 require_once "../Controller/templateController.php";
 $template = new templateController();
 $template->template();
+$template->menuTarefas();
 ?>
 
     <div class="col-md-12">
