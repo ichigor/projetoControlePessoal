@@ -11,9 +11,11 @@ $template = new templateController();
 $template->template();
 $template->menuTarefas();
 require_once "../DAO/tarefaDAO.php";
+require_once "../DAO/membroDAO.php";
 
 $idTarefa=$_GET['idTarefa'];
 $dado = buscaTarefa($conexao, $idTarefa);
+$membro = buscaMembro($conexao, $dado['idUsuario']);
 ?>
 <div class="col-md-12">
     <h1>Dados da Tarefa</h1>
@@ -30,28 +32,16 @@ $dado = buscaTarefa($conexao, $idTarefa);
                         <input type="text" class="form-control" name="nomeTarefa" placeholder="Nome da Tarefa" value="<?= $dado['nomeTarefa'] ?>" disabled>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Frequencia</label>
-                    <div class="col-sm-2">
-                        <select name="frequencia" class="form-control"  style="width: 100%;" disabled>
-                            <option value="Diariamente" selected="selected">Diariamente</option>
-                            <option value="Mensamente">Mensalmente</option>
-                            <option value="Eventualmente">Eventualmente</option>
-                        </select>
+                <div class="form-group ">
+                    <label for="frequencia" class="col-sm-2 control-label">Frequencia</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="frequencia" placeholder="Frequencia" value="<?= $dado['frequencia'] ?>" disabled>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Designado</label>
-                    <div class="col-sm-2">
-                        <select name="designado" class="form-control" style="width: 100%;" disabled>
-                            <option value="Colaborador0" selected="selected">Colaborador0</option>
-                            <option value="Colaborador1">Colaborador1</option>
-                            <option value="Colaborador2">Colaborador2</option>
-                            <option value="Colaborador3">Colaborador3</option>
-                            <option value="Colaborador4">Colaborador4</option>
-                            <option value="Colaborador5">Colaborador5</option>
-                            <option value="Colaborador6">Colaborador6</option>
-                        </select>
+                <div class="form-group ">
+                    <label for="designado" class="col-sm-2 control-label">Frequencia</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="designado" placeholder="Designado" value="<?= $membro['nome'] ?>" disabled>
                     </div>
                 </div>
                 <div class="form-group">
@@ -65,9 +55,6 @@ $dado = buscaTarefa($conexao, $idTarefa);
                         </div>
                     </div>
                 </div>
-
-
-
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Data Limite:</label>
                     <div class="col-sm-2">

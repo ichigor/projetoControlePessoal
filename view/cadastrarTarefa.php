@@ -35,7 +35,7 @@ $membros = listaMembrosAtivos($conexao);
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Frequencia</label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-5">
                             <select name="frequencia" class="form-control"  style="width: 100%;">
                                 <option value="Diariamente" selected="selected">Diariamente</option>
                                 <option value="Mensamente">Mensalmente</option>
@@ -45,7 +45,7 @@ $membros = listaMembrosAtivos($conexao);
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Designado</label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-5">
                             <select name="designado" class="form-control" style="width: 100%;">
                                 <?php foreach ($membros as $membro) :?>
                                     <option value="<?=$membro['idUsuario']?>" ><?=$membro['nome']?></option>
