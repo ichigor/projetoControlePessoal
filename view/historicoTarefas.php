@@ -11,6 +11,7 @@ $template = new templateController();
 $template->template();
 $template->menuTarefas();
 require_once "../DAO/tarefaDAO.php";
+require_once "../DAO/membroDAO.php";
 ?>
     <div class="col-md-12">
     <h1>Historico de todas as Tarefas</h1>
@@ -35,8 +36,9 @@ require_once "../DAO/tarefaDAO.php";
                             <a href="dadosTarefa.php?idTarefa=<?= $tarefa['idTarefa'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
                         </td>
                         <td><?= $tarefa['status'] ?></td>
+                        <?php $membro = buscaMembro($conexao, $tarefa['idUsuario'])?>
                         <td>
-                            <a href="dadosMembro.php?idUsuario=24 ">Colaborador 1</a>
+                            <a href="dadosMembro.php?idUsuario=<?=$tarefa['idUsuario']?> "><?= $membro['nome']?></a>
                         </td>
                     </tr>
 
