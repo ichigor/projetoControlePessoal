@@ -37,7 +37,7 @@ require_once "../DAO/tarefaDAO.php";
 
                     <tr>
                         <td>
-                            <a href="dadosTarefa.php?idTarefa=<?= $tarefa['idTarefa'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
+                            <a href="dadosTarefaColaborador.php?idTarefa=<?= $tarefa['idTarefa'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
                         </td>
                         <td>
                             <?= $tarefa['dataFinal'] ?>

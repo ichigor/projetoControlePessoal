@@ -39,7 +39,7 @@ $membro = buscaMembro($conexao, $dado['idUsuario']);
                     </div>
                 </div>
                 <div class="form-group ">
-                    <label for="designado" class="col-sm-2 control-label">Frequencia</label>
+                    <label for="designado" class="col-sm-2 control-label">Designado</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="designado" placeholder="Designado" value="<?= $membro['nome'] ?>" disabled>
                     </div>
