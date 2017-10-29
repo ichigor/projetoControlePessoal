@@ -22,7 +22,7 @@ if ($funcionalidade == "create") {
     $dataFinal = $_POST["dataFinal"];
     $descricao = $_POST["descricao"];
     $status = "Em andamento";
-    $idUsuario = 11;
+    $idUsuario = $_POST["designado"];
 
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 
@@ -41,7 +41,7 @@ if ($funcionalidade == "create") {
     $dataFinal = $_POST["dataFinal"];
     $descricao = $_POST["descricao"];
     $status = "";
-    $idUsuario = 11;
+    $idUsuario = $_POST["designado"];
 
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 

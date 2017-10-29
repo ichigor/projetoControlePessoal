@@ -10,6 +10,9 @@ require_once "../Controller/templateController.php";
 $template = new templateController();
 $template->template();
 $template->menuTarefas();
+
+require_once "../DAO/membroDAO.php";
+$membros = listaMembrosAtivos($conexao);
 ?>
 
     <div class="col-md-12">
@@ -44,13 +47,9 @@ $template->menuTarefas();
                         <label class="col-sm-2 control-label">Designado</label>
                         <div class="col-sm-2">
                             <select name="designado" class="form-control" style="width: 100%;">
-                                <option value="Colaborador0" selected="selected">Colaborador0</option>
-                                <option value="Colaborador1">Colaborador1</option>
-                                <option value="Colaborador2">Colaborador2</option>
-                                <option value="Colaborador3">Colaborador3</option>
-                                <option value="Colaborador4">Colaborador4</option>
-                                <option value="Colaborador5">Colaborador5</option>
-                                <option value="Colaborador6">Colaborador6</option>
+                                <?php foreach ($membros as $membro) :?>
+                                    <option value="<?=$membro['idUsuario']?>" ><?=$membro['nome']?></option>
+                                <?php endforeach ?>
                             </select>
                         </div>
                     </div>
