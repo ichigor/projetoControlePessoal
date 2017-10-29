@@ -15,7 +15,7 @@ $template ->templateColaborador();
 $template ->menuHomeColaborador();
 require_once "../DAO/tarefaDAO.php";
 ?>
-
+<?php mostraAlerta("success"); ?>
 <div class="col-md-12">
     <h1>Tarefas para o dia de Hoje</h1>
     <div class="box box-danger">
