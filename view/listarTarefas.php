@@ -38,7 +38,7 @@ mostraAlerta("warning");?>
                             <form class="" action="alterarTarefa.php" method="post">
                                 <input type="hidden" name="idTarefa" value="<?=$tarefa['idTarefa']?>">
                                 <input type="hidden" name="funcionalidade" value="update">
-                                <button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span></button>
+                                <button class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button>
                             </form>
                         </td>
                         <td>
