@@ -17,8 +17,8 @@ $tarefas = buscaTarefasDiarias($conexao);
 
 foreach ($tarefas as $value){
 
-    echo $value['nomeTarefa'];
-    echo '</br>';
+//    echo $value['nomeTarefa'];
+//    echo '</br>';
 
-    //atualizaRotinaDiaria($conexao, $value['idTarefa']);
+    atualizaRotinaDiaria($conexao, $value['idTarefa']);
 }
