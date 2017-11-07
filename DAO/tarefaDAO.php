@@ -88,7 +88,7 @@ function buscaTarefaEmAvaliacao($conexao)
 function buscaTarefaDia($conexao)
 {
     $tarefas = array();
-    $resultado = mysqli_query($conexao, "select * from tarefa where dataFinal = CURDATE()");
+    $resultado = mysqli_query($conexao, "select * from tarefa where dataFinal = CURDATE() and status <>'Cancelada'");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
         array_push($tarefas, $tarefa);
     }
@@ -113,4 +113,25 @@ function buscaTarefasAvaliadas($conexao)
         array_push($tarefas, $tarefa);
     }
     return $tarefas;
+}
+
+function atualizaRotinaDiaria($conexao, $idTarefa){
+
+    $query = "update tarefa set dataInicial=now(), dataFinal=now() where frequencia='Diariamente' and idTarefa ='{$idTarefa}'";
+    return mysqli_query($conexao, $query);
+}
+
+function buscaTarefasDiarias($conexao){
+    $tarefas = array();
+    $resultado = mysqli_query($conexao, "select * from tarefa where frequencia='Diariamente'");
+    while ($tarefa = mysqli_fetch_assoc($resultado)) {
+        array_push($tarefas, $tarefa);
+    }
+    return $tarefas;
+}
+
+function buscarUltimaTarefa($conexao){
+    $query = "Select max(idTarefa) from tarefa";
+    $retorno = mysqli_query($conexao, $query);
+    return mysqli_fetch_assoc($retorno);
 }
