@@ -7,6 +7,7 @@
  */
 
 require_once("../util/conecta.php");
+require_once("historicoDAO.php");
 
 function insereTarefa($conexao, $t)
 {
@@ -18,8 +19,9 @@ function insereTarefa($conexao, $t)
 
 function cancelarTarefa($conexao, $idTarefa)
 {
+    $idHistorico = buscarUltimaHistorico($conexao, $idTarefa);
     $query = "update tarefa set status='Cancelada' where idTarefa ='{$idTarefa}'";
-    $query2 = "update historico set status='Cancelada' where idTarefa ='{$idTarefa}'";
+    $query2 = "update historico set status='Cancelada' where idTarefa ='{$idTarefa}' and idHistorico='{$idHistorico['max(idHistorico)']}'";
     mysqli_query($conexao, $query);
     return mysqli_query($conexao, $query2);
 }
@@ -53,7 +55,6 @@ function buscaTarefaNaoCancelada($conexao)
 }
 
 
-//verificar se ta atualizando as canceladas tambem
 function atualizaRotinaDiaria($conexao, $idTarefa, $tarefa){
 
     $query = "update tarefa set dataInicial=now(), dataFinal=now() where frequencia='Diariamente' and idTarefa ='{$idTarefa}'";
@@ -65,7 +66,7 @@ function atualizaRotinaDiaria($conexao, $idTarefa, $tarefa){
 
 function buscaTarefasDiarias($conexao){
     $tarefas = array();
-    $resultado = mysqli_query($conexao, "select * from tarefa where frequencia='Diariamente'");
+    $resultado = mysqli_query($conexao, "select * from tarefa where frequencia='Diariamente' and status <> 'Cancelada'");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
         array_push($tarefas, $tarefa);
     }

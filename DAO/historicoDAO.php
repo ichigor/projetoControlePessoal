@@ -92,3 +92,10 @@ function buscaTarefasAvaliadas($conexao)
     }
     return $tarefas;
 }
+
+function buscaHistorico($conexao, $idHistorico)
+{
+
+    $resultado = mysqli_query($conexao, "select * from historico where idHistorico={$idHistorico}");
+    return mysqli_fetch_assoc($resultado);
+}

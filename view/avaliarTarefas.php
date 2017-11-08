@@ -35,7 +35,7 @@ mostraAlerta("warning"); ?>
 
                         <tr>
                             <td>
-                                <a href="dadosTarefa.php?idTarefa=<?= $tarefa['idTarefa'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
+                                <a href="dadosHistorico.php?idHistorico=<?= $tarefa['idHistorico'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
                             </td>
                             <td>
                                 <form class="" action="../Controller/historicoController.php" method="post">
