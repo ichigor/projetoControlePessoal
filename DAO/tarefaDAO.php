@@ -15,7 +15,7 @@ function insereTarefa($conexao, $t)
     return mysqli_query($conexao, $query);
 }
 
-
+//mudar pro historico
 function listaTarefas($conexao)
 {
     $tarefas = array();
@@ -32,18 +32,21 @@ function cancelarTarefa($conexao, $idTarefa)
     return mysqli_query($conexao, $query);
 }
 
+//mudar pro historico
 function concluirTarefa($conexao, $idTarefa)
 {
     $query = "update tarefa set status='Completo' where idTarefa ='{$idTarefa}'";
     return mysqli_query($conexao, $query);
 }
 
+//mudar pro historico
 function naoConcluirTarefa($conexao, $idTarefa)
 {
     $query = "update tarefa set status='Incompleto' where idTarefa ='{$idTarefa}'";
     return mysqli_query($conexao, $query);
 }
 
+//tem coisa aqui verificar mais tarde talvez quando alterar uma tarefa nao seja alterado no historico
 function alteraTarefa($conexao, $t, $idTarefa)
 {
 
@@ -52,19 +55,21 @@ function alteraTarefa($conexao, $t, $idTarefa)
 
 }
 
-
+//mudar pro historico e usar idHistorico
 function buscaTarefa($conexao, $idTarefa)
 {
     $resultado = mysqli_query($conexao, "select * from tarefa where idTarefa={$idTarefa}");
     return mysqli_fetch_assoc($resultado);
 }
 
+//mudar pro historico
 function enviarParaAvalicao($conexao, $idTarefa)
 {
     $query = "update tarefa set status='Em avaliacao' where idTarefa ='{$idTarefa}'";
     return mysqli_query($conexao, $query);
 }
 
+//mudar pro historico
 function buscaTarefaEmAndamento($conexao)
 {
     $tarefas = array();
@@ -75,6 +80,7 @@ function buscaTarefaEmAndamento($conexao)
     return $tarefas;
 }
 
+//mudar pro historico
 function buscaTarefaEmAvaliacao($conexao)
 {
     $tarefas = array();
@@ -85,6 +91,7 @@ function buscaTarefaEmAvaliacao($conexao)
     return $tarefas;
 }
 
+//mudar pro historico
 function buscaTarefaDia($conexao)
 {
     $tarefas = array();
@@ -95,6 +102,7 @@ function buscaTarefaDia($conexao)
     return $tarefas;
 }
 
+//mudar pro historico
 function buscaTarefaNaoCancelada($conexao)
 {
     $tarefas = array();
@@ -104,7 +112,7 @@ function buscaTarefaNaoCancelada($conexao)
     }
     return $tarefas;
 }
-
+//mudar pro historico
 function buscaTarefasAvaliadas($conexao)
 {
     $tarefas = array();
@@ -115,10 +123,15 @@ function buscaTarefasAvaliadas($conexao)
     return $tarefas;
 }
 
-function atualizaRotinaDiaria($conexao, $idTarefa){
+
+//verificar se ta atualizando as canceladas tambem
+function atualizaRotinaDiaria($conexao, $idTarefa, $tarefa){
 
     $query = "update tarefa set dataInicial=now(), dataFinal=now() where frequencia='Diariamente' and idTarefa ='{$idTarefa}'";
-    return mysqli_query($conexao, $query);
+    mysqli_query($conexao, $query);
+    $query2 = "insert into historico (nomeTarefa, status, frequencia, descricao, dataInicial, dataFinal, idTarefa, idUsuario) values
+            ('{$tarefa['nomeTarefa']}','Em andamento','{$tarefa['frequencia']}','{$tarefa['descricao']}',now(), now(),'{$idTarefa}','{$tarefa['idUsuario']}')";
+    return mysqli_query($conexao, $query2);
 }
 
 function buscaTarefasDiarias($conexao){

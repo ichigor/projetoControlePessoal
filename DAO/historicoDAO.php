@@ -9,7 +9,7 @@
 
 function insereHistorico($conexao, $h)
 {
-    $query = "insert into historico (nomeTarefa, status, frequencia, descricao, dataInicial, dataFinal, idUsuario) values
-            ('{$h->nomeTarefa}','{$h->status}','{$h->frequencia}','{$h->descricao}','{$h->dataInicial}', '{$h->dataFinal}','{$h->idUsuario}')";
+    $query = "insert into historico (nomeTarefa, status, frequencia, descricao, dataInicial, dataFinal, idTarefa, idUsuario) values
+            ('{$h->nomeTarefa}','{$h->status}','{$h->frequencia}','{$h->descricao}','{$h->dataInicial}', '{$h->dataFinal}','{$h->idTarefa}','{$h->idUsuario}')";
     return mysqli_query($conexao, $query);
 }

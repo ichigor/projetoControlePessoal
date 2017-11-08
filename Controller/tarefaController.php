@@ -11,6 +11,9 @@ require_once "../model/Tarefa.php";
 require_once "../DAO/tarefaDAO.php";
 require_once "../util/mostraAlerta.php";
 
+require_once "../model/Historico.php";
+require_once "../DAO/historicoDAO.php";
+
 $funcionalidade = $_POST["funcionalidade"];
 
 
@@ -27,6 +30,12 @@ if ($funcionalidade == "create") {
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 
     insereTarefa($conexao, $t);
+
+    $ultimaTarefa = buscarUltimaTarefa($conexao) ;
+
+    $h = new Historico($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $ultimaTarefa['max(idTarefa)'], $idUsuario);
+
+    insereHistorico($conexao, $h);
 
     $_SESSION["success"] = "Sua tarefa foi criada com sucesso ! ! !";
     header("Location: ../view/principalGerente.php");

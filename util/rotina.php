@@ -7,18 +7,22 @@
  */
 
 require_once "../DAO/tarefaDAO.php";
+require_once "../model/Historico.php";
+require_once "../DAO/membroDAO.php";
 
 $tarefas = buscaTarefasDiarias($conexao);
 
-//testes para pegar a ultima posicao
-//$varTeste = buscarUltimaTarefa($conexao) ;
-//echo $varTeste['max(idTarefa)'];
-//
-
 foreach ($tarefas as $value){
 
-//    echo $value['nomeTarefa'];
-//    echo '</br>';
+    $membro = buscaMembro($conexao, $value['idUsuario']);
 
-    atualizaRotinaDiaria($conexao, $value['idTarefa']);
+    if($membro['ativo']==0){
+        cancelarTarefa($conexao, $value['idTarefa']);
+    }else{
+//        echo $value['nomeTarefa'];
+//        echo '</br>';
+        atualizaRotinaDiaria($conexao, $value['idTarefa'], $value);
+
+    }
+
 }

@@ -18,7 +18,7 @@ class Historico
     public $idUsuario;
     public $idTarefa;
 
-    public function __construct($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario, $idTarefa)
+    public function __construct($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idTarefa, $idUsuario)
     {
         $this->nomeTarefa = $nomeTarefa;
         $this->status = $status;
@@ -26,8 +26,9 @@ class Historico
         $this->descricao = $descricao;
         $this->dataInicial = $dataInicial;
         $this->dataFinal = $dataFinal;
-        $this->idUsuario = $idUsuario;
         $this->idTarefa = $idTarefa;
+        $this->idUsuario = $idUsuario;
+
     }
 
     /**
