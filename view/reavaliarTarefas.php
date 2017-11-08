@@ -14,6 +14,7 @@ $template = new templateController();
 $template->template();
 $template->menuTarefas();
 require_once "../DAO/tarefaDAO.php";
+require_once "../DAO/historicoDAO.php";
 ?>
 <?php mostraAlerta("success"); ?>
 <div class="col-md-12">
@@ -43,7 +44,7 @@ require_once "../DAO/tarefaDAO.php";
                             <?= $tarefa['status'] ?>
                         </td>
                         <td>
-                            <form class="" action="../Controller/tarefaController.php" method="post">
+                            <form class="" action="../Controller/historicoController.php" method="post">
                                 <input type="hidden" name="idTarefa" value="<?=$tarefa['idTarefa']?>">
                                 <input type="hidden" name="funcionalidade" value="reavaliation">
                                 <button class="btn btn-primary"><span class="glyphicon glyphicon-send"></span></button>

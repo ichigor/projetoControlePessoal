@@ -14,7 +14,8 @@ $template = new templateController();
 $template->template();
 $template->menuHome();
 
-require_once "../DAO/tarefaDAO.php";
+//require_once "../DAO/tarefaDAO.php";
+require_once "../DAO/historicoDAO.php";
 require_once "../DAO/membroDAO.php";
 ?>
 <?php mostraAlerta("success"); ?>
@@ -32,7 +33,7 @@ require_once "../DAO/membroDAO.php";
 
                 </tr>
                 <?php
-                $tarefas = buscaTarefaDia($conexao);
+                $tarefas = buscaHistoricoDia($conexao);
                 foreach ($tarefas as $tarefa) :
                     ?>
 

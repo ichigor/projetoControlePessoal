@@ -11,6 +11,7 @@ $template = new templateController();
 $template->template();
 $template->menuTarefas();
 require_once "../DAO/tarefaDAO.php";
+require_once "../DAO/historicoDAO.php";
 ?>
 <?php mostraAlerta("success");
 mostraAlerta("warning"); ?>
@@ -28,7 +29,7 @@ mostraAlerta("warning"); ?>
 
                     </tr>
                     <?php
-                    $tarefas = buscaTarefaEmAvaliacao($conexao);
+                    $tarefas = buscaHistoricoEmAvaliacao($conexao);
                     foreach ($tarefas as $tarefa) :
                         ?>
 
@@ -37,7 +38,7 @@ mostraAlerta("warning"); ?>
                                 <a href="dadosTarefa.php?idTarefa=<?= $tarefa['idTarefa'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
                             </td>
                             <td>
-                                <form class="" action="../Controller/tarefaController.php" method="post">
+                                <form class="" action="../Controller/historicoController.php" method="post">
                                     <input type="hidden" name="idTarefa" value="<?= $tarefa['idTarefa'] ?>">
                                     <input type="hidden" name="funcionalidade" value="completed">
                                     <button class="btn btn-success"><span class="glyphicon glyphicon-ok"></span>
@@ -45,7 +46,7 @@ mostraAlerta("warning"); ?>
                                 </form>
                             </td>
                             <td>
-                                <form class="" action="../Controller/tarefaController.php" method="post">
+                                <form class="" action="../Controller/historicoController.php" method="post">
                                     <input type="hidden" name="idTarefa" value="<?= $tarefa['idTarefa'] ?>">
                                     <input type="hidden" name="funcionalidade" value="incomplete">
                                     <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>

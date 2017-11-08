@@ -14,6 +14,7 @@ $template = new templateController();
 $template ->templateColaborador();
 $template ->menuHomeColaborador();
 require_once "../DAO/tarefaDAO.php";
+require_once "../DAO/historicoDAO.php";
 ?>
 <?php mostraAlerta("success"); ?>
 <div class="col-md-12">
@@ -31,7 +32,7 @@ require_once "../DAO/tarefaDAO.php";
 
                 </tr>
                 <?php
-                $tarefas = buscaTarefaEmAndamento($conexao);
+                $tarefas = buscaHistoricoEmAndamento($conexao);
                 foreach ($tarefas as $tarefa) :
                     ?>
 
@@ -43,7 +44,7 @@ require_once "../DAO/tarefaDAO.php";
                             <?= $tarefa['dataFinal'] ?>
                         </td>
                         <td>
-                            <form class="" action="../Controller/tarefaController.php" method="post">
+                            <form class="" action="../Controller/historicoController.php" method="post">
                                 <input type="hidden" name="idTarefa" value="<?=$tarefa['idTarefa']?>">
                                 <input type="hidden" name="funcionalidade" value="avaliation">
                                 <button class="btn btn-primary"><span class="glyphicon glyphicon-send"></span></button>

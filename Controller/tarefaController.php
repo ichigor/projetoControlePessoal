@@ -54,6 +54,7 @@ if ($funcionalidade == "create") {
 
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 
+    //talvez adicionar para alterar o ultimo historico com idTarefa maior
     alteraTarefa($conexao, $t, $idTarefa);
 
     $_SESSION["success"] = "Sua tarefa foi atualizada com sucesso ! ! !";
@@ -64,24 +65,4 @@ if ($funcionalidade == "create") {
     $_SESSION["warning"] = "A tarefa selecionada foi cancelada com sucesso ! ! !";
     cancelarTarefa($conexao, $idTarefa);
     header("Location: ../view/listarTarefas.php");
-} elseif ($funcionalidade == "completed") {
-    $idTarefa = $_POST["idTarefa"];
-    $_SESSION["success"] = "A tarefa selecionada foi concluida com sucesso ! ! !";
-    concluirTarefa($conexao, $idTarefa);
-    header("Location: ../view/avaliarTarefas.php");
-} elseif ($funcionalidade == "incomplete") {
-    $idTarefa = $_POST["idTarefa"];
-    $_SESSION["warning"] = "A tarefa selecionada foi definida como não concluida ! ! !";
-    naoConcluirTarefa($conexao, $idTarefa);
-    header("Location: ../view/avaliarTarefas.php");
-} elseif ($funcionalidade == "avaliation") {
-    $idTarefa = $_POST["idTarefa"];
-    $_SESSION["success"] = "A tarefa selecionada foi enviada para ser avaliada ! ! !";
-    enviarParaAvalicao($conexao, $idTarefa);
-    header("Location: ../view/principalColaborador.php");
-} elseif ($funcionalidade == "reavaliation") {
-    $idTarefa = $_POST["idTarefa"];
-    $_SESSION["success"] = "A tarefa selecionada foi enviada para ser reavaliada ! ! !";
-    enviarParaAvalicao($conexao, $idTarefa);
-    header("Location: ../view/reavaliarTarefas.php");
 }
