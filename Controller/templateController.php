@@ -13,6 +13,10 @@ class templateController{
     public function templateF(){
         include "../view/templateFooter.php";
     }
+    public function templateFColaborador(){
+        include "../view/templateFooterColaborador.php";
+    }
+
     public function templateColaborador(){
         include "../view/templateColaborador.php";
     }

@@ -94,4 +94,4 @@ $dado = buscaMembro($conexao, $idUsuario);
 </div>
 
 
-<?php $template->templateF(); ?>
+<?php $template->templateFColaborador(); ?>

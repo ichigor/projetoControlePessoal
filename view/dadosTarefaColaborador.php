@@ -85,4 +85,4 @@ $membro = buscaMembro($conexao, $dado['idUsuario']);
         </form>
     </div>
 </div>
-<?php $template->templateF(); ?>
+<?php $template->templateFColaborador(); ?>

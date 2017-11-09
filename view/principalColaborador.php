@@ -61,5 +61,5 @@ require_once "../DAO/historicoDAO.php";
     <!-- /.box-body -->
 </div>
 <?php
-$template->templateF();
+$template->templateFColaborador();
 ?>

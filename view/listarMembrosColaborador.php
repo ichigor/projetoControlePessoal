@@ -51,4 +51,4 @@ require_once "../DAO/membroDAO.php";
 
         </div>
     </div>
-<?php $template->templateF(); ?>
+<?php $template->templateFColaborador(); ?>

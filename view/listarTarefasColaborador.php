@@ -49,4 +49,4 @@ require_once "../DAO/tarefaDAO.php";
             <!-- /.box-body -->
         </div>
     </div>
-<?php $template->templateF(); ?>
+<?php $template->templateFColaborador(); ?>

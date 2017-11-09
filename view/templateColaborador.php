@@ -48,7 +48,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="principalGerente.php" class="logo">
+        <a href="principalColaborador.php" class="logo">
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg"><b>Controle de Tarefas</b></span>
         </a>
