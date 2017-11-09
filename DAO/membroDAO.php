@@ -68,3 +68,12 @@ function buscaMembro($conexao, $idUsuario){
     $resultado = mysqli_query($conexao, "select * from usuario where idUsuario={$idUsuario}");
     return mysqli_fetch_assoc($resultado);
 }
+
+function listaColaboradoresAtivos($conexao){
+    $membros = array();
+    $resultado = mysqli_query($conexao, "select * from usuario where ativo=1 and tipo='Colaborador'");
+    while($membro = mysqli_fetch_assoc($resultado)){
+        array_push($membros,$membro);
+    }
+    return $membros;
+}

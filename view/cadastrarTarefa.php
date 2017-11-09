@@ -12,7 +12,7 @@ $template->template();
 $template->menuTarefas();
 
 require_once "../DAO/membroDAO.php";
-$membros = listaMembrosAtivos($conexao);
+$membros = listaColaboradoresAtivos($conexao);
 ?>
 
     <div class="col-md-12">
