@@ -40,9 +40,14 @@ $dado = buscaTarefa($conexao, $idTarefa);
                         <label class="col-sm-2 control-label">Frequencia</label>
                         <div class="col-sm-5">
                             <select name="frequencia" class="form-control"  style="width: 100%;">
-                                <option value="Diariamente" selected="selected">Diariamente</option>
-                                <option value="Mensamente">Mensalmente</option>
-                                <option value="Eventualmente">Eventualmente</option>
+                                <?php
+                                if($dado['frequencia']=='Diariamente') {$diariamente = "selected= 'selected'";
+                                }else if($dado['frequencia']=='Mensalmente'){$mensalmente = "selected= 'selected'";
+                                }else if($dado['frequencia']=='Eventualmente'){$eventualmente ="selected= 'selected'";}
+                                ?>
+                                <option value="Diariamente" <?=$diariamente?>>Diariamente</option>
+                                <option value="Mensalmente"<?=$mensalmente?>>Mensalmente</option>
+                                <option value="Eventualmente"<?=$eventualmente?>>Eventualmente</option>
                             </select>
                         </div>
                     </div>

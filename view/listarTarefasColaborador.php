@@ -29,7 +29,6 @@ require_once "../DAO/tarefaDAO.php";
                     $tarefas = buscaTarefaNaoCancelada($conexao);
                     foreach ($tarefas as $tarefa) :
                         ?>
-
                         <tr>
                             <td>
                                 <a href="dadosTarefaColaborador.php?idTarefa=<?= $tarefa['idTarefa'] ?> "><?= $tarefa['nomeTarefa'] ?></a>

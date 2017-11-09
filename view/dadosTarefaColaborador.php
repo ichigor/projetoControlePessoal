@@ -12,11 +12,11 @@ $template = new templateController();
 
 $template ->templateColaborador();
 $template ->menuTarefasColaborador();
-require_once "../DAO/historicoDAO.php";
+require_once "../DAO/tarefaDAO.php";
 require_once "../DAO/membroDAO.php";
 
-$idHistorico=$_GET['idHistorico'];
-$dado = buscaHistorico($conexao, $idHistorico);
+$idTarefa=$_GET['idTarefa'];
+$dado = buscaTarefa($conexao, $idTarefa);
 $membro = buscaMembro($conexao, $dado['idUsuario']);
 ?>
 <div class="col-md-12">
@@ -24,7 +24,7 @@ $membro = buscaMembro($conexao, $dado['idUsuario']);
     <div class="box box-danger">
         <br><br>
         <!-- /.box-header -->
-        <form class="form-horizontal" action="../Controller/historicoController.php" method="POST">
+        <form class="form-horizontal" action="../Controller/tarefaController.php" method="POST">
 
             <input type="hidden" value="<?= $dado['idTarefa'] ?>" name="idTarefa">
             <div class="box-body">
