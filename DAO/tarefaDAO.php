@@ -32,8 +32,11 @@ function cancelarTarefa($conexao, $idTarefa)
 function alteraTarefa($conexao, $t, $idTarefa)
 {
 
+    $idHistorico = buscarUltimaHistorico($conexao, $idTarefa);
     $query = "update tarefa set nomeTarefa= '{$t->nomeTarefa}', frequencia= '{$t->frequencia}',descricao = '{$t->descricao}', dataInicial= '{$t->dataInicial}', dataFinal='{$t->dataFinal}', idUsuario='{$t->idUsuario}' where idTarefa ='{$idTarefa}'";
-    return mysqli_query($conexao, $query);
+    $query2 = "update historico set nomeTarefa= '{$t->nomeTarefa}', frequencia= '{$t->frequencia}',descricao = '{$t->descricao}', dataInicial= '{$t->dataInicial}', dataFinal='{$t->dataFinal}', idUsuario='{$t->idUsuario}' where idTarefa ='{$idTarefa}' and idHistorico='{$idHistorico['max(idHistorico)']}'";
+    mysqli_query($conexao, $query);
+    return mysqli_query($conexao, $query2);
 
 }
 
