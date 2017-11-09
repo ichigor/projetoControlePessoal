@@ -9,7 +9,6 @@
 require_once "../model/Tarefa.php";
 //require_once "../DAO/tarefaDAO.php";
 require_once "../util/mostraAlerta.php";
-require_once  "../util/conecta.php";
 require_once "../model/Historico.php";
 require_once "../DAO/historicoDAO.php";
 

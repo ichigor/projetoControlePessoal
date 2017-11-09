@@ -49,12 +49,6 @@ $dado = buscaMembro($conexao, $idUsuario);
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="senha" class="col-sm-2 control-label">Senha</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="senha" name="senha" disabled placeholder="Senha" value="<?=$dado['senha'] ?>">
-                    </div>
-                </div>
-                <div class="form-group">
                     <label for="rg" class="col-sm-2 control-label">RG</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="rg" name="rg" placeholder="RG" disabled value="<?=$dado['rg'] ?>">

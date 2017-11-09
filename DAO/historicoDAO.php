@@ -6,6 +6,7 @@
  * Time: 14:05
  */
 
+require_once("../util/conecta.php");
 
 function insereHistorico($conexao, $h)
 {
@@ -26,7 +27,7 @@ function buscaHistoricoDia($conexao)
 function listaHistorico($conexao)
 {
     $tarefas = array();
-    $resultado = mysqli_query($conexao, "select * from historico");
+    $resultado = mysqli_query($conexao, "select * from historico order by idHistorico desc");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
         array_push($tarefas, $tarefa);
     }
