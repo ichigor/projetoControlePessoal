@@ -65,7 +65,7 @@ function ativarMembro($conexao, $idUsuario){
 }
 
 function buscaMembro($conexao, $idUsuario){
-    $resultado = mysqli_query($conexao, "select * from usuario where idUsuario={$idUsuario}");
+    $resultado = mysqli_query($conexao, "select * from usuario where idUsuario='{$idUsuario}'");
     return mysqli_fetch_assoc($resultado);
 }
 
@@ -76,4 +76,9 @@ function listaColaboradoresAtivos($conexao){
         array_push($membros,$membro);
     }
     return $membros;
+}
+
+function buscaLogin($conexao, $usuario, $senha){
+    $resultado = mysqli_query($conexao, "select * from usuario where usuario='{$usuario}' and senha = '{$senha}'");
+    return mysqli_fetch_assoc($resultado);
 }

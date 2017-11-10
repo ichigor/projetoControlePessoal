@@ -7,8 +7,8 @@
  */
 
 
-require_once "Controller/loginController.php";
+require_once "Controller/indexController.php";
 
-$login = new loginController();
+$principal = new indexController();
 
-$login->login();
+$principal->index();

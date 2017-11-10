@@ -36,13 +36,14 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
 
-        <form action="view/principalGerente.php" method="post">
+        <form action="Controller/loginController.php" method="post">
+            <input type="hidden" value="logar" name="funcionalidade">
             <div class="form-group has-feedback">
-                <input type="text" class="form-control" placeholder="Usuario">
+                <input type="text" class="form-control" placeholder="Usuario" name="usuario">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Senha">
+                <input type="password" class="form-control" placeholder="Senha" name="senha">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
