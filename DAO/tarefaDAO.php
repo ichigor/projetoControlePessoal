@@ -81,3 +81,24 @@ function buscarUltimaTarefa($conexao){
     $retorno = mysqli_query($conexao, $query);
     return mysqli_fetch_assoc($retorno);
 }
+
+function buscaTarefasMensais($conexao){
+    $tarefas = array();
+    $resultado = mysqli_query($conexao, "select * from tarefa where frequencia='Mensalmente' and status <> 'Cancelada'");
+    while ($tarefa = mysqli_fetch_assoc($resultado)) {
+        array_push($tarefas, $tarefa);
+    }
+    return $tarefas;
+}
+
+
+function atualizaRotinaMensal($conexao, $idTarefa, $tarefa){
+
+    $query = "update tarefa set dataFinal = DATE_ADD(dataFinal, INTERVAL 1 MONTH)
+              , dataInicial = DATE_ADD(dataInicial, INTERVAL 1 MONTH) where idTarefa ='{$idTarefa}'";
+    mysqli_query($conexao, $query);
+    $query2 = "insert into historico (nomeTarefa, status, frequencia, descricao, dataInicial, dataFinal, idTarefa, idUsuario) values
+            ('{$tarefa['nomeTarefa']}','Em andamento','{$tarefa['frequencia']}','{$tarefa['descricao']}',DATE_ADD('{$tarefa['dataInicial']}', INTERVAL 1 MONTH),DATE_ADD('{$tarefa['dataFinal']}', INTERVAL 1 MONTH),'{$idTarefa}','{$tarefa['idUsuario']}')";
+    return mysqli_query($conexao, $query2);
+
+}

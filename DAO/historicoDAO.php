@@ -17,7 +17,7 @@ function insereHistorico($conexao, $h)
 function buscaHistoricoDia($conexao)
 {
     $tarefas = array();
-    $resultado = mysqli_query($conexao, "select * from historico where dataFinal = CURDATE() and status <>'Cancelada'");
+    $resultado = mysqli_query($conexao, "select * from historico where dataFinal = CURDATE() or dataInicial = CURDATE() and status <>'Cancelada'");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
         array_push($tarefas, $tarefa);
     }
@@ -36,7 +36,7 @@ function listaHistorico($conexao)
 function buscaHistoricoEmAndamento($conexao)
 {
     $tarefas = array();
-    $resultado = mysqli_query($conexao, "select * from historico where status = 'Em andamento' and dataFinal = CURDATE()");
+    $resultado = mysqli_query($conexao, "select * from historico where status = 'Em andamento' and dataFinal = CURDATE() or dataInicial = CURDATE()");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
         array_push($tarefas, $tarefa);
     }
