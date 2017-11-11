@@ -16,7 +16,7 @@
     <div class="tab-content">
         <!-- Home tab content -->
         <div class="tab-pane active">
-            <a class="btn btn-primary btn-lg" href="dadosMembro.php?idUsuario=<?=$_SESSION["usuario_id"]?>"><i class="fa fa-user"></i> <span>Perfil</span>
+            <a class="btn btn-primary btn-lg" href="dadosMembro.php?idUsuario=33"><i class="fa fa-user"></i> <span>Perfil</span>
                 </span>
             </a>
             <br><br>
