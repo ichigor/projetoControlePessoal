@@ -40,7 +40,8 @@ require_once "util/mostraAlerta.php";
     <!-- /.login-logo -->
     <div class="login-box-body">
 
-        <form action="Controller/loginController.php" method="post">
+        <form action="view/principalGerente.php" method="post">
+<!--            <form action="Controller/loginController.php" method="post">-->
             <input type="hidden" value="logar" name="funcionalidade">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Usuario" name="usuario">
