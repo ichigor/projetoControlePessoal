@@ -67,7 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-user"></i> Gerente</a>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-user"></i><?=$_SESSION["usuario_logado"]?></a>
                     </li>
                 </ul>
             </div>

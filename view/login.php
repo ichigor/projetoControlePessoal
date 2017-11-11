@@ -28,7 +28,8 @@ require_once "util/mostraAlerta.php";
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -40,8 +41,8 @@ require_once "util/mostraAlerta.php";
     <!-- /.login-logo -->
     <div class="login-box-body">
 
-<!--        <form action="view/principalGerente.php" method="post">-->
-            <form action="Controller/loginController.php" method="post">
+
+        <form action="Controller/loginController.php" method="post">
             <input type="hidden" value="logar" name="funcionalidade">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Usuario" name="usuario">
