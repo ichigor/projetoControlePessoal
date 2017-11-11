@@ -65,7 +65,7 @@ function ativarMembro($conexao, $idUsuario){
 }
 
 function buscaMembro($conexao, $idUsuario){
-    $resultado = mysqli_query($conexao, "select * from usuario where idUsuario='{$idUsuario}'");
+    $resultado = mysqli_query($conexao, "select * from usuario where idUsuario={$idUsuario}");
     return mysqli_fetch_assoc($resultado);
 }
 
