@@ -7,24 +7,24 @@
 <!-- Main Footer -->
 <footer class="main-footer">
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2017 <a href="https://www.linkedin.com/in/igor-camargo-moiano-1a5761104/">Igor Moiano</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2017 <a href="https://www.linkedin.com/in/igor-camargo-moiano-1a5761104/">Igor Moiano</a>.</strong>
+    All rights reserved.
 </footer>
 
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
     <div class="tab-content">
         <!-- Home tab content -->
-        <div class="tab-pane active" >
-            <li >
-                <a href="dadosMembro.php?idUsuario=24"><i class="fa fa-user"></i> <span>Perfil</span>
-              </span>
-                </a>
-            </li>
-            <li>
-                <a href="../index.php"><i class="fa fa-close"></i> <span>Sair</span>
-              </span>
-                </a>
-            </li>
+        <div class="tab-pane active">
+            <a class="btn btn-primary btn-lg" href="dadosMembro.php?idUsuario=<?=$_SESSION["usuario_id"]?>"><i class="fa fa-user"></i> <span>Perfil</span>
+                </span>
+            </a>
+            <br><br>
+            <form action="../Controller/loginController.php" method="post">
+                <input type="hidden" value="deslogar" name="funcionalidade">
+                <button type="submit" class="btn btn-danger btn-lg"><i class="fa fa-close"></i>Sair</button>
+            </form>
+
         </div>
 
         <!-- /.tab-pane -->
@@ -92,29 +92,29 @@ immediately after the control sidebar -->
         $('.select2').select2()
 
         //Datemask dd/mm/yyyy
-        $('#datemask').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
+        $('#datemask').inputmask('yyyy/mm/dd', {'placeholder': 'yyyy/mm/dd'})
         //Datemask2 mm/dd/yyyy
-        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+        $('#datemask2').inputmask('mm/dd/yyyy', {'placeholder': 'mm/dd/yyyy'})
         //Money Euro
         $('[data-mask]').inputmask()
 
         //Date range picker
         $('#reservation').daterangepicker()
         //Date range picker with time picker
-        $('#reservationtime').daterangepicker({ timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A' })
+        $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'})
         //Date range as a button
         $('#daterange-btn').daterangepicker(
             {
-                ranges   : {
-                    'Today'       : [moment(), moment()],
-                    'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
                     'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                    'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-                    'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
                 },
                 startDate: moment().subtract(29, 'days'),
-                endDate  : moment()
+                endDate: moment()
             },
             function (start, end) {
                 $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
@@ -129,17 +129,17 @@ immediately after the control sidebar -->
         //iCheck for checkbox and radio inputs
         $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
             checkboxClass: 'icheckbox_minimal-blue',
-            radioClass   : 'iradio_minimal-blue'
+            radioClass: 'iradio_minimal-blue'
         })
         //Red color scheme for iCheck
         $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
             checkboxClass: 'icheckbox_minimal-red',
-            radioClass   : 'iradio_minimal-red'
+            radioClass: 'iradio_minimal-red'
         })
         //Flat red color scheme for iCheck
         $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
             checkboxClass: 'icheckbox_flat-green',
-            radioClass   : 'iradio_flat-green'
+            radioClass: 'iradio_flat-green'
         })
 
         //Colorpicker

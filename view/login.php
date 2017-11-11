@@ -1,3 +1,6 @@
+<?php
+require_once "util/mostraAlerta.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,6 +36,7 @@
         <b>Controle de Tarefas</b>
         <b>Bem-vindo</b>
     </div>
+
     <!-- /.login-logo -->
     <div class="login-box-body">
 
@@ -55,7 +59,7 @@
         </form>
         <br>
         <strong>Esqueceu sua senha?<br>Entre em contato com o gerente ou administrador do sistema :D</strong>
-
+        <?php mostraAlerta("danger"); ?>
     </div>
     <!-- /.login-box-body -->
 </div>

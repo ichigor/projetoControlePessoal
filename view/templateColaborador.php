@@ -1,6 +1,10 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
-require_once("../util/mostraAlerta.php"); ?>
+require_once("../util/mostraAlerta.php");
+require_once("../Controller/loginController.php");
+
+verificaUsuario();
+?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -63,7 +67,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-user"></i> Colaborador</a>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-user"></i><?=$_SESSION["usuario_logado"]?></a>
                     </li>
                 </ul>
             </div>
