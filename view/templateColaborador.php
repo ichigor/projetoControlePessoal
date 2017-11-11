@@ -1,9 +1,9 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
 require_once("../util/mostraAlerta.php");
-//require_once("../Controller/loginController.php");
+include("../Controller/loginController.php");
 
-//verificaUsuario();
+verificaUsuario();
 ?>
 <!DOCTYPE html>
 <!--
