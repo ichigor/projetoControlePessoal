@@ -66,7 +66,7 @@ $dado = buscaMembro($conexao, $idUsuario);
                 <div class="form-group">
                     <label for="telefone" class="col-sm-2 control-label">Telefone Fixo</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Telefone Fixo" name="telefone" disabled data-inputmask='"mask": "(999) 999-9999"' data-mask value="<?=$dado['telefone'] ?>">
+                        <input type="text" class="form-control" placeholder="Telefone Fixo" name="telefone" disabled data-inputmask='"mask": "(99) 9999-9999"' data-mask value="<?=$dado['telefone'] ?>">
                     </div>
                 </div>
                 <div class="form-group">
