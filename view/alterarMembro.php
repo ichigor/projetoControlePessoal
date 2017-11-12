@@ -35,7 +35,7 @@ $dado = buscaMembro($conexao, $idUsuario);
                 <div class="form-group ">
                     <label for="cpf" class="col-sm-2 control-label">CPF</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="cpf" placeholder="CPF" disabled data-inputmask='"mask": "(999) 999-9999"' data-mask value="<?=$dado['cpf'] ?>" required>
+                        <input type="text" class="form-control" name="cpf" placeholder="CPF" disabled data-inputmask='"mask": "999.999.999-99"' data-mask value="<?=$dado['cpf'] ?>" required>
                     </div>
                 </div>
 
@@ -78,7 +78,7 @@ $dado = buscaMembro($conexao, $idUsuario);
                 <div class="form-group">
                     <label for="telefone" class="col-sm-2 control-label">Telefone Fixo</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Telefone Fixo" name="telefone" data-inputmask='"mask": "(999) 999-9999"' data-mask value="<?=$dado['telefone'] ?>" required>
+                        <input type="text" class="form-control" placeholder="Telefone Fixo" name="telefone" data-inputmask='"mask": "(99) 9999-9999"' data-mask value="<?=$dado['telefone'] ?>" required>
                     </div>
                 </div>
                 <div class="form-group">
