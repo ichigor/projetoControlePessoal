@@ -43,6 +43,5 @@ function verificaUsuario(){
     if(!isset($_SESSION["usuario_logado"])){
         $_SESSION["danger"]= "Você não tem acesso a esta funcionlidade.";
         header("Location: ../index.php");
-        die();
     }
 }
