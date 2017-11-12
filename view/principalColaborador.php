@@ -8,13 +8,13 @@
 
 
 require_once "../Controller/templateController.php";
-
+require_once "../DAO/tarefaDAO.php";
+require_once "../DAO/historicoDAO.php";
 $template = new templateController();
 
 $template ->templateColaborador();
 $template ->menuHomeColaborador();
-require_once "../DAO/tarefaDAO.php";
-require_once "../DAO/historicoDAO.php";
+
 ?>
 <?php mostraAlerta("success"); ?>
 <div class="col-md-12">

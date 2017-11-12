@@ -7,12 +7,13 @@
  */
 
 require_once "../Controller/templateController.php";
+require_once "../DAO/membroDAO.php";
 
 $template = new templateController();
 
 $template ->templateColaborador();
 $template ->menuMembrosColaborador();
-require_once "../DAO/membroDAO.php";
+
 
 $idUsuario=$_GET['idUsuario'];
 $dado = buscaMembro($conexao, $idUsuario);

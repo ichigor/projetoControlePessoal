@@ -7,12 +7,12 @@
  */
 
 require_once "../Controller/templateController.php";
-
+require_once "../DAO/membroDAO.php";
 $template = new templateController();
 
 $template ->templateColaborador();
 $template ->menuMembrosColaborador();
-require_once "../DAO/membroDAO.php";
+
 ?>
     <div class="col-md-12">
         <h1>Lista de Membros</h1>

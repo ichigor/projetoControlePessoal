@@ -8,15 +8,15 @@
 
 
 require_once "../Controller/templateController.php";
-
+//require_once "../DAO/tarefaDAO.php";
+require_once "../DAO/historicoDAO.php";
+require_once "../DAO/membroDAO.php";
 $template = new templateController();
 
 $template->template();
 $template->menuHome();
 
-//require_once "../DAO/tarefaDAO.php";
-require_once "../DAO/historicoDAO.php";
-require_once "../DAO/membroDAO.php";
+
 ?>
 <?php mostraAlerta("success"); ?>
 <div class="col-md-12">

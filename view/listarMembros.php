@@ -7,10 +7,11 @@
  */
 
 require_once "../Controller/templateController.php";
+require_once "../DAO/membroDAO.php";
 $template = new templateController();
 $template->template();
 $template->menuMembros();
-require_once "../DAO/membroDAO.php";
+
 ?>
 <?php mostraAlerta("success");
 mostraAlerta("warning");?>

@@ -7,11 +7,12 @@
  */
 
 require_once "../Controller/templateController.php";
+require_once "../DAO/tarefaDAO.php";
+require_once "../DAO/membroDAO.php";
 $template = new templateController();
 $template->template();
 $template->menuTarefas();
-require_once "../DAO/tarefaDAO.php";
-require_once "../DAO/membroDAO.php";
+
 
 $idTarefa=$_GET['idTarefa'];
 $dado = buscaTarefa($conexao, $idTarefa);

@@ -7,11 +7,12 @@
  */
 
 require_once "../Controller/templateController.php";
+require_once "../DAO/historicoDAO.php";
+require_once "../DAO/membroDAO.php";
 $template = new templateController();
 $template->template();
 $template->menuTarefas();
-require_once "../DAO/historicoDAO.php";
-require_once "../DAO/membroDAO.php";
+
 
 $idHistorico=$_GET['idHistorico'];
 $dado = buscaHistorico($conexao, $idHistorico);

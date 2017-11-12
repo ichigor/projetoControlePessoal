@@ -7,10 +7,11 @@
  */
 
 require_once "../Controller/templateController.php";
+require_once "../DAO/tarefaDAO.php";
 $template = new templateController();
 $template->template();
 $template->menuTarefas();
-require_once "../DAO/tarefaDAO.php";
+
 ?>
 <?php mostraAlerta("success");
 mostraAlerta("warning");?>
