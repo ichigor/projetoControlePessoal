@@ -6,7 +6,7 @@
  * Time: 14:05
  */
 
-require_once("../util/conecta.php");
+include("../util/conecta.php");
 
 function insereHistorico($conexao, $h)
 {

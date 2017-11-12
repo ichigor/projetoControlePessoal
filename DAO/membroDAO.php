@@ -5,7 +5,7 @@
  * Date: 05/10/2017
  * Time: 14:21
  */
-require_once("../util/conecta.php");
+include("../util/conecta.php");
 
 
 function insereMembro($conexao, $m){

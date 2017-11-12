@@ -6,8 +6,8 @@
  * Time: 14:05
  */
 
-require_once("../util/conecta.php");
-require_once("historicoDAO.php");
+include("../util/conecta.php");
+include("historicoDAO.php");
 
 function insereTarefa($conexao, $t)
 {
