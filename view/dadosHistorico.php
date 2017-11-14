@@ -17,6 +17,12 @@ $template->menuTarefas();
 $idHistorico=$_GET['idHistorico'];
 $dado = buscaHistorico($conexao, $idHistorico);
 $membro = buscaMembro($conexao, $dado['idUsuario']);
+
+$date=date_create($dado['dataInicial']);
+$dataInicial = date_format($date,"d-m-Y");
+
+$date=date_create($dado['dataFinal']);
+$dataFinal = date_format($date,"d-m-Y");
 ?>
 <div class="col-md-12">
     <h1>Dados da Tarefa</h1>
@@ -52,7 +58,7 @@ $membro = buscaMembro($conexao, $dado['idUsuario']);
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" value="<?= $dado['dataInicial'] ?>" disabled>
+                            <input type="text" class="form-control pull-right" id="datepicker" name="dataInicial" value="<?= $dataInicial ?>" disabled>
                         </div>
                     </div>
                 </div>
@@ -63,7 +69,8 @@ $membro = buscaMembro($conexao, $dado['idUsuario']);
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" value="<?= $dado['dataFinal'] ?>" disabled>
+                            <input type="text" class="form-control pull-right" id="datepicker2" name="dataFinal"
+                                   value="<?= $dataFinal ?>" disabled>
                         </div>
                     </div>
                 </div>

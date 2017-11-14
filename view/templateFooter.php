@@ -16,7 +16,8 @@
     <div class="tab-content">
         <!-- Home tab content -->
         <div class="tab-pane active">
-            <a class="btn btn-primary btn-lg" href="dadosMembro.php?idUsuario=<?=$_SESSION["usuario_id"]?>"><i class="fa fa-user"></i> <span>Perfil</span>
+            <a class="btn btn-primary btn-lg" href="dadosMembro.php?idUsuario=<?= $_SESSION["usuario_id"] ?>"><i
+                        class="fa fa-user"></i> <span>Perfil</span>
                 </span>
             </a>
             <br><br>
@@ -123,12 +124,12 @@ immediately after the control sidebar -->
 
         //Date picker
         $('#datepicker').datepicker({
-            format: 'dd/mm/yyyy',
+            format: 'dd-mm-yyyy',
             autoclose: true
         })
 
         $('#datepicker2').datepicker({
-            format: 'dd/mm/yyyy',
+            format: 'dd-mm-yyyy',
             autoclose: true
         })
 

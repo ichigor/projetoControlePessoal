@@ -7,13 +7,13 @@
  */
 
 require_once "../model/Membro.php";
-require_once  "../DAO/membroDAO.php";
+require_once "../DAO/membroDAO.php";
 require_once "../util/mostraAlerta.php";
 
 $funcionalidade = $_POST["funcionalidade"];
 
 
-if($funcionalidade == "create"){
+if ($funcionalidade == "create") {
     $nome = $_POST["nome"];
     $usuario = $_POST["usuario"];
     $senha = $_POST["senha"];
@@ -33,7 +33,7 @@ if($funcionalidade == "create"){
     $_SESSION["success"] = "Membro cadastrado com sucesso ! ! !";
     header("Location: ../view/principalGerente.php");
 
-}elseif ($funcionalidade == "update"){
+} elseif ($funcionalidade == "update") {
 
     $idUsuario = $_POST["idUsuario"];
     $nome = $_POST["nome"];
@@ -55,14 +55,14 @@ if($funcionalidade == "create"){
     $_SESSION["success"] = "Membro alterado com sucesso ! ! !";
     header("Location: ../view/listarMembros.php");
 
-}elseif ($funcionalidade == "list"){
+} elseif ($funcionalidade == "list") {
     listaMembros($conexao);
-}elseif ($funcionalidade == "delete"){
+} elseif ($funcionalidade == "delete") {
     $idUsuario = $_POST["idUsuario"];
     inativarMembro($conexao, $idUsuario);
     $_SESSION["warning"] = "Membro inativado com sucesso ! ! !";
     header("Location: ../view/listarMembros.php");
-}elseif ($funcionalidade == "active"){
+} elseif ($funcionalidade == "active") {
     $idUsuario = $_POST["idUsuario"];
     ativarMembro($conexao, $idUsuario);
     $_SESSION["success"] = "Membro recuperado com sucesso ! ! !";

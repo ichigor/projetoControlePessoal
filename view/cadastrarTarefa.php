@@ -19,7 +19,8 @@ $membros = listaColaboradoresAtivos($conexao);
         <h1>Cadastrar Tarefa</h1>
         <div class="box box-danger">
             <div class="box-header with-border">
-                <h3 class="box-title" style="color: #0b93d5"><strong>*Todos os campos são de preenchimento obrigatório</strong></h3>
+                <h3 class="box-title" style="color: #0b93d5"><strong>*Todos os campos são de preenchimento
+                        obrigatório</strong></h3>
             </div>
             <br><br>
             <!-- /.box-header -->
@@ -30,13 +31,14 @@ $membros = listaColaboradoresAtivos($conexao);
                     <div class="form-group ">
                         <label for="nomeTarefa" class="col-sm-2 control-label">Nome Tarefa</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="nomeTarefa" placeholder="Nome da Tarefa" required>
+                            <input type="text" class="form-control" name="nomeTarefa" placeholder="Nome da Tarefa"
+                                   required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Frequencia</label>
                         <div class="col-sm-5">
-                            <select name="frequencia" class="form-control"  style="width: 100%;">
+                            <select name="frequencia" class="form-control" style="width: 100%;">
                                 <option value="Diariamente" selected="selected">Diariamente</option>
                                 <option value="Mensamente">Mensalmente</option>
                                 <option value="Eventualmente">Eventualmente</option>
@@ -47,8 +49,8 @@ $membros = listaColaboradoresAtivos($conexao);
                         <label class="col-sm-2 control-label">Designado</label>
                         <div class="col-sm-5">
                             <select name="designado" class="form-control" style="width: 100%;">
-                                <?php foreach ($membros as $membro) :?>
-                                    <option value="<?=$membro['idUsuario']?>" ><?=$membro['nome']?></option>
+                                <?php foreach ($membros as $membro) : ?>
+                                    <option value="<?= $membro['idUsuario'] ?>"><?= $membro['nome'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
@@ -60,12 +62,12 @@ $membros = listaColaboradoresAtivos($conexao);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-<!--                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" required>-->
-                                <input type="text" class="form-control pull-right" id="datepicker" name="dataInicial" required>
+                                <!--                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" required>-->
+                                <input type="text" class="form-control pull-right" id="datepicker" name="dataInicial"
+                                       required>
                             </div>
                         </div>
                     </div>
-
 
 
                     <div class="form-group">
@@ -75,8 +77,9 @@ $membros = listaColaboradoresAtivos($conexao);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right" id="datepicker2" name="dataFinal" required>
-<!--                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" required>-->
+                                <input type="text" class="form-control pull-right" id="datepicker2" name="dataFinal"
+                                       required>
+                                <!--                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" required>-->
                             </div>
                         </div>
                     </div>
@@ -84,7 +87,9 @@ $membros = listaColaboradoresAtivos($conexao);
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Descrição</label>
                         <div class="col-sm-8">
-                        <textarea class="form-control" rows="8" placeholder="Digite a descrição do que precisa ser realizado" name="descricao" required></textarea>
+                            <textarea class="form-control" rows="8"
+                                      placeholder="Digite a descrição do que precisa ser realizado" name="descricao"
+                                      required></textarea>
                         </div>
                     </div>
 

@@ -9,7 +9,8 @@ $template->menuMembros();
         <h1>Cadastrar Membro</h1>
         <div class="box box-danger">
             <div class="box-header with-border">
-                <h3 class="box-title" style="color: #0b93d5"><strong>*Todos os campos são de preenchimento obrigatório</strong></h3>
+                <h3 class="box-title" style="color: #0b93d5"><strong>*Todos os campos são de preenchimento
+                        obrigatório</strong></h3>
             </div>
             <br><br>
             <!-- /.box-header -->
@@ -19,26 +20,30 @@ $template->menuMembros();
                     <div class="form-group ">
                         <label for="cpf" class="col-sm-2 control-label">CPF</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control"  name="cpf" placeholder="CPF" data-inputmask='"mask": "999.999.999-99"' data-mask required>
+                            <input type="text" class="form-control" name="cpf" placeholder="CPF"
+                                   data-inputmask='"mask": "999.999.999-99"' data-mask required>
                         </div>
                     </div>
                     <input type="hidden" value="create" name="funcionalidade">
                     <div class="form-group">
                         <label for="nome" class="col-sm-2 control-label">Nome</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo" required>
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo"
+                                   required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="usuario" class="col-sm-2 control-label">Usuario</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario para acessar o sistema" required>
+                            <input type="text" class="form-control" id="usuario" name="usuario"
+                                   placeholder="Usuario para acessar o sistema" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="senha" class="col-sm-2 control-label">Senha</label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha"
+                                   required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -50,19 +55,22 @@ $template->menuMembros();
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                                   required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="celular" class="col-sm-2 control-label">Celular</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" data-inputmask='"mask": "(99) 99999-9999"' data-mask required>
+                            <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular"
+                                   data-inputmask='"mask": "(99) 99999-9999"' data-mask required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="telefone" class="col-sm-2 control-label">Telefone Fixo</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" placeholder="Telefone Fixo" name="telefone" data-inputmask='"mask": "(99) 9999-9999"' data-mask required>
+                            <input type="text" class="form-control" placeholder="Telefone Fixo" name="telefone"
+                                   data-inputmask='"mask": "(99) 9999-9999"' data-mask required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -72,8 +80,11 @@ $template->menuMembros();
                         </div>
                     </div>
 
-                    <div class="icheckbox_flat-green checked" aria-checked="false" aria-disabled="false" style="position: relative;">
-                        <input type="checkbox" class="flat-red" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                    <div class="icheckbox_flat-green checked" aria-checked="false" aria-disabled="false"
+                         style="position: relative;">
+                        <input type="checkbox" class="flat-red" checked="" style="position: absolute; opacity: 0;">
+                        <ins class="iCheck-helper"
+                             style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                     </div>
                     <div class="form-group">
                         <label for="funcao" class="col-sm-2 control-label">Função</label>

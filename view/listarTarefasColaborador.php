@@ -10,8 +10,8 @@ require_once "../Controller/templateController.php";
 require_once "../DAO/tarefaDAO.php";
 $template = new templateController();
 
-$template ->templateColaborador();
-$template ->menuTarefasColaborador();
+$template->templateColaborador();
+$template->menuTarefasColaborador();
 
 ?>
     <div class="col-md-12">
@@ -37,7 +37,7 @@ $template ->menuTarefasColaborador();
                                 <?= $tarefa['status'] ?>
                             </td>
                             <td>
-                               <?= $tarefa['frequencia'] ?>
+                                <?= $tarefa['frequencia'] ?>
                             </td>
                         </tr>
 

@@ -6,38 +6,55 @@
  * Time: 15:05
  */
 
-class templateController{
-    public function template(){
+class templateController
+{
+    public function template()
+    {
         include "../view/template.php";
     }
-    public function templateF(){
+
+    public function templateF()
+    {
         include "../view/templateFooter.php";
     }
-    public function templateFColaborador(){
+
+    public function templateFColaborador()
+    {
         include "../view/templateFooterColaborador.php";
     }
 
-    public function templateColaborador(){
+    public function templateColaborador()
+    {
         include "../view/templateColaborador.php";
     }
-    public function menuHome(){
+
+    public function menuHome()
+    {
         include "../view/menuHome.php";
     }
-    public function menuMembros(){
+
+    public function menuMembros()
+    {
         include "../view/menuMembros.php";
     }
 
-    public function menuTarefas(){
+    public function menuTarefas()
+    {
         include "../view/menuTarefas.php";
     }
 
-    public function menuHomeColaborador(){
+    public function menuHomeColaborador()
+    {
         include "../view/menuHomeColaborador.php";
     }
-    public function menuMembrosColaborador(){
+
+    public function menuMembrosColaborador()
+    {
         include "../view/menuMembrosColaborador.php";
     }
-    public function menuTarefasColaborador(){
+
+    public function menuTarefasColaborador()
+    {
         include "../view/menuTarefasColaborador.php";
     }
 

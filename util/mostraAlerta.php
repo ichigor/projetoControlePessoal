@@ -14,7 +14,9 @@ function mostraAlerta($tipo)
         <div class="box-body">
             <div class="alert alert-<?= $tipo ?> alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> <?= $mensagem = ($tipo == "success" || $tipo == "warning") ? "Sucesso" : "Ops !"; ?></h4>
+                <h4>
+                    <i class="icon fa fa-check"></i> <?= $mensagem = ($tipo == "success" || $tipo == "warning") ? "Sucesso" : "Ops !"; ?>
+                </h4>
                 <?= $_SESSION[$tipo] ?>
             </div>
         </div>
@@ -22,4 +24,5 @@ function mostraAlerta($tipo)
         unset($_SESSION[$tipo]);
     }
 }
+
 ?>

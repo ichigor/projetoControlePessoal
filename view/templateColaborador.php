@@ -30,7 +30,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 
 
-
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
@@ -68,7 +67,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-user"></i><?=$_SESSION["usuario_logado"]?></a>
+                        <a href="#" data-toggle="control-sidebar"><i
+                                    class="fa fa-user"></i><?= $_SESSION["usuario_logado"] ?></a>
                     </li>
                 </ul>
             </div>
@@ -83,7 +83,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel" style="background-color: #fff8f8">
                 <div>
-                    <img src="dist/img/logo-pro-imoveis.png" >
+                    <img src="dist/img/logo-pro-imoveis.png">
                 </div>
             </div>
 

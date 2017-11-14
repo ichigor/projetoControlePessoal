@@ -15,15 +15,23 @@ $template->menuTarefas();
 
 $membros = listaColaboradoresAtivos($conexao);
 
-$idTarefa=$_POST['idTarefa'];
+$idTarefa = $_POST['idTarefa'];
 $dado = buscaTarefa($conexao, $idTarefa);
+
+$date = date_create($dado['dataInicial']);
+$dataInicial = date_format($date, "d-m-Y");
+
+$date = date_create($dado['dataFinal']);
+$dataFinal = date_format($date, "d-m-Y");
+
 ?>
 
     <div class="col-md-12">
         <h1>Alterar Tarefa</h1>
         <div class="box box-danger">
             <div class="box-header with-border">
-                <h3 class="box-title" style="color: #0b93d5"><strong>*Todos os campos são de preenchimento obrigatório</strong></h3>
+                <h3 class="box-title" style="color: #0b93d5"><strong>*Todos os campos são de preenchimento
+                        obrigatório</strong></h3>
             </div>
             <br><br>
             <!-- /.box-header -->
@@ -34,21 +42,26 @@ $dado = buscaTarefa($conexao, $idTarefa);
                     <div class="form-group ">
                         <label for="nomeTarefa" class="col-sm-2 control-label">Nome Tarefa</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="nomeTarefa" placeholder="Nome da Tarefa" value="<?= $dado['nomeTarefa'] ?>" required>
+                            <input type="text" class="form-control" name="nomeTarefa" placeholder="Nome da Tarefa"
+                                   value="<?= $dado['nomeTarefa'] ?>" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Frequencia</label>
                         <div class="col-sm-5">
-                            <select name="frequencia" class="form-control"  style="width: 100%;">
+                            <select name="frequencia" class="form-control" style="width: 100%;">
                                 <?php
-                                if($dado['frequencia']=='Diariamente') {$diariamente = "selected= 'selected'";
-                                }else if($dado['frequencia']=='Mensalmente'){$mensalmente = "selected= 'selected'";
-                                }else if($dado['frequencia']=='Eventualmente'){$eventualmente ="selected= 'selected'";}
+                                if ($dado['frequencia'] == 'Diariamente') {
+                                    $diariamente = "selected= 'selected'";
+                                } else if ($dado['frequencia'] == 'Mensalmente') {
+                                    $mensalmente = "selected= 'selected'";
+                                } else if ($dado['frequencia'] == 'Eventualmente') {
+                                    $eventualmente = "selected= 'selected'";
+                                }
                                 ?>
-                                <option value="Diariamente" <?=$diariamente?>>Diariamente</option>
-                                <option value="Mensalmente"<?=$mensalmente?>>Mensalmente</option>
-                                <option value="Eventualmente"<?=$eventualmente?>>Eventualmente</option>
+                                <option value="Diariamente" <?= $diariamente ?>>Diariamente</option>
+                                <option value="Mensalmente"<?= $mensalmente ?>>Mensalmente</option>
+                                <option value="Eventualmente"<?= $eventualmente ?>>Eventualmente</option>
                             </select>
                         </div>
                     </div>
@@ -56,8 +69,8 @@ $dado = buscaTarefa($conexao, $idTarefa);
                         <label class="col-sm-2 control-label">Designado</label>
                         <div class="col-sm-5">
                             <select name="designado" class="form-control" style="width: 100%;">
-                                <?php foreach ($membros as $membro) :?>
-                                    <option value="<?=$membro['idUsuario']?>" ><?=$membro['nome']?></option>
+                                <?php foreach ($membros as $membro) : ?>
+                                    <option value="<?= $membro['idUsuario'] ?>"><?= $membro['nome'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
@@ -69,13 +82,13 @@ $dado = buscaTarefa($conexao, $idTarefa);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right" id="datepicker" name="dataInicial" value="<?= $dado['dataInicial'] ?>" required>
+                                <input type="text" class="form-control pull-right" id="datepicker" name="dataInicial"
+                                       value="<?= $dataInicial ?>" required>
 
-<!--                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" value="--><?//= $dado['dataInicial'] ?><!--" required>-->
+
                             </div>
                         </div>
                     </div>
-
 
 
                     <div class="form-group">
@@ -85,8 +98,9 @@ $dado = buscaTarefa($conexao, $idTarefa);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right" id="datepicker2" name="dataFinal" value="<?= $dado['dataFinal'] ?>" required>
-<!--                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" value="--><?//= $dado['dataFinal'] ?><!--" required>-->
+                                <input type="text" class="form-control pull-right" id="datepicker2" name="dataFinal"
+                                       value="<?= $dataFinal ?>" required>
+
                             </div>
                         </div>
                     </div>
@@ -94,7 +108,9 @@ $dado = buscaTarefa($conexao, $idTarefa);
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Descrição</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" rows="8" placeholder="Digite a descrição do que precisa ser realizado" name="descricao" required><?= $dado['descricao'] ?></textarea>
+                            <textarea class="form-control" rows="8"
+                                      placeholder="Digite a descrição do que precisa ser realizado" name="descricao"
+                                      required><?= $dado['descricao'] ?></textarea>
                         </div>
                     </div>
 

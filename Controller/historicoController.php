@@ -14,12 +14,12 @@ require_once "../DAO/historicoDAO.php";
 
 $funcionalidade = $_POST["funcionalidade"];
 
-if($funcionalidade == "avaliation"){
+if ($funcionalidade == "avaliation") {
     $idTarefa = $_POST["idTarefa"];
     enviarParaAvalicao($conexao, $idTarefa);
     $_SESSION["success"] = "A tarefa selecionada foi enviada para ser avaliada ! ! !";
     header("Location: ../view/principalColaborador.php");
-}elseif ($funcionalidade == "completed") {
+} elseif ($funcionalidade == "completed") {
     $idTarefa = $_POST["idTarefa"];
     $_SESSION["success"] = "A tarefa selecionada foi concluida com sucesso ! ! !";
     concluirTarefa($conexao, $idTarefa);

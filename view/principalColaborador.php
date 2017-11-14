@@ -12,8 +12,8 @@ require_once "../DAO/tarefaDAO.php";
 require_once "../DAO/historicoDAO.php";
 $template = new templateController();
 
-$template ->templateColaborador();
-$template ->menuHomeColaborador();
+$template->templateColaborador();
+$template->menuHomeColaborador();
 
 ?>
 <?php mostraAlerta("success"); ?>
@@ -45,7 +45,7 @@ $template ->menuHomeColaborador();
                         </td>
                         <td>
                             <form class="" action="../Controller/historicoController.php" method="post">
-                                <input type="hidden" name="idTarefa" value="<?=$tarefa['idTarefa']?>">
+                                <input type="hidden" name="idTarefa" value="<?= $tarefa['idTarefa'] ?>">
                                 <input type="hidden" name="funcionalidade" value="avaliation">
                                 <button class="btn btn-primary"><span class="glyphicon glyphicon-send"></span></button>
                             </form>

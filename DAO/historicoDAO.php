@@ -15,6 +15,7 @@ function insereHistorico($conexao, $h)
             ('{$h->nomeTarefa}','{$h->status}','{$h->frequencia}','{$h->descricao}','{$h->dataInicial}', '{$h->dataFinal}','{$h->idTarefa}','{$h->idUsuario}')";
     return mysqli_query($conexao, $query);
 }
+
 function buscaHistoricoDia($conexao)
 {
     $tarefas = array();
@@ -34,6 +35,7 @@ function listaHistorico($conexao)
     }
     return $tarefas;
 }
+
 function buscaHistoricoEmAndamento($conexao, $idUsuario)
 {
     $tarefas = array();
@@ -64,7 +66,8 @@ function enviarParaAvalicao($conexao, $idTarefa)
     return mysqli_query($conexao, $query2);
 }
 
-function buscarUltimaHistorico($conexao, $idTarefa = null){
+function buscarUltimaHistorico($conexao, $idTarefa = null)
+{
     //PROBLEMA AQUI ESTA PEGANDO SEMPRE O ULTIMO E NAO O ULTIMO DAQUELE
     $query = "Select max(idHistorico) from historico where idTarefa = '{$idTarefa}'";
     $retorno = mysqli_query($conexao, $query);
@@ -89,6 +92,7 @@ function naoConcluirTarefa($conexao, $idTarefa)
     mysqli_query($conexao, $query);
     return mysqli_query($conexao, $query2);
 }
+
 function buscaTarefasAvaliadas($conexao)
 {
     //verificar se vai precisar da linha de baixo

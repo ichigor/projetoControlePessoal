@@ -7,7 +7,8 @@
  */
 
 
-class Membro{
+class Membro
+{
 
     public $nome;
     public $usuario;
@@ -225,8 +226,6 @@ class Membro{
     {
         $this->tipo = $tipo;
     }
-
-
 
 
 }

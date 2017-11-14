@@ -27,12 +27,18 @@ if ($funcionalidade == "create") {
     $status = "Em andamento";
     $idUsuario = $_POST["designado"];
 
+    $date = date_create($dataInicial);
+    $dataInicial = date_format($date, "Y-m-d");
+
+    $date = date_create($dataFinal);
+    $dataFinal = date_format($date, "Y-m-d");
+
 
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 
     insereTarefa($conexao, $t);
 
-    $ultimaTarefa = buscarUltimaTarefa($conexao) ;
+    $ultimaTarefa = buscarUltimaTarefa($conexao);
 
     $h = new Historico($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $ultimaTarefa['max(idTarefa)'], $idUsuario);
 
@@ -52,6 +58,12 @@ if ($funcionalidade == "create") {
     $descricao = $_POST["descricao"];
     $status = "";
     $idUsuario = $_POST["designado"];
+
+    $date = date_create($dataInicial);
+    $dataInicial = date_format($date, "Y-m-d");
+
+    $date = date_create($dataFinal);
+    $dataFinal = date_format($date, "Y-m-d");
 
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 

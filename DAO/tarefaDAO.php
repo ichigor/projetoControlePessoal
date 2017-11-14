@@ -29,7 +29,6 @@ function cancelarTarefa($conexao, $idTarefa)
 }
 
 
-
 //tem coisa aqui verificar mais tarde talvez quando alterar uma tarefa nao seja alterado no historico
 function alteraTarefa($conexao, $t, $idTarefa)
 {
@@ -69,7 +68,8 @@ function buscaTarefaNaoCanceladaColaborador($conexao, $idUsuario)
     return $tarefas;
 }
 
-function atualizaRotinaDiaria($conexao, $idTarefa, $tarefa){
+function atualizaRotinaDiaria($conexao, $idTarefa, $tarefa)
+{
 
     $query = "update tarefa set dataInicial=now(), dataFinal=now(), status='Em andamento' where frequencia='Diariamente' and idTarefa ='{$idTarefa}'";
     mysqli_query($conexao, $query);
@@ -78,7 +78,8 @@ function atualizaRotinaDiaria($conexao, $idTarefa, $tarefa){
     return mysqli_query($conexao, $query2);
 }
 
-function buscaTarefasDiarias($conexao){
+function buscaTarefasDiarias($conexao)
+{
     $tarefas = array();
     $resultado = mysqli_query($conexao, "select * from tarefa where frequencia='Diariamente' and status <> 'Cancelada'");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
@@ -87,13 +88,15 @@ function buscaTarefasDiarias($conexao){
     return $tarefas;
 }
 
-function buscarUltimaTarefa($conexao){
+function buscarUltimaTarefa($conexao)
+{
     $query = "Select max(idTarefa) from tarefa";
     $retorno = mysqli_query($conexao, $query);
     return mysqli_fetch_assoc($retorno);
 }
 
-function buscaTarefasMensais($conexao){
+function buscaTarefasMensais($conexao)
+{
     $tarefas = array();
     $resultado = mysqli_query($conexao, "select * from tarefa where frequencia='Mensalmente' and status <> 'Cancelada'");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
@@ -103,7 +106,8 @@ function buscaTarefasMensais($conexao){
 }
 
 
-function atualizaRotinaMensal($conexao, $idTarefa, $tarefa){
+function atualizaRotinaMensal($conexao, $idTarefa, $tarefa)
+{
 
     $query = "update tarefa set dataFinal = DATE_ADD(dataFinal, INTERVAL 1 MONTH)
               , dataInicial = DATE_ADD(dataInicial, INTERVAL 1 MONTH) where idTarefa ='{$idTarefa}'";

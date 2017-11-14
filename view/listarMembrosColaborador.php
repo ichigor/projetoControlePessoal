@@ -10,8 +10,8 @@ require_once "../Controller/templateController.php";
 require_once "../DAO/membroDAO.php";
 $template = new templateController();
 
-$template ->templateColaborador();
-$template ->menuMembrosColaborador();
+$template->templateColaborador();
+$template->menuMembrosColaborador();
 
 ?>
     <div class="col-md-12">
