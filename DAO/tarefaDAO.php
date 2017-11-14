@@ -23,6 +23,8 @@ function cancelarTarefa($conexao, $idTarefa)
     $query = "update tarefa set status='Cancelada' where idTarefa ='{$idTarefa}'";
     $query2 = "update historico set status='Cancelada' where idTarefa ='{$idTarefa}' and idHistorico='{$idHistorico['max(idHistorico)']}'";
     mysqli_query($conexao, $query);
+
+
     return mysqli_query($conexao, $query2);
 }
 
@@ -47,10 +49,10 @@ function buscaTarefa($conexao, $idTarefa)
 }
 
 //verificar como vai ficar essa funcao
-function buscaTarefaNaoCancelada($conexao)
+function buscaTarefaNaoCancelada($conexao, $idUsuario)
 {
     $tarefas = array();
-    $resultado = mysqli_query($conexao, "select * from tarefa where status <> 'Cancelada'");
+    $resultado = mysqli_query($conexao, "select * from tarefa where status <> 'Cancelada' and idUsuario='{$idUsuario}'");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
         array_push($tarefas, $tarefa);
     }
@@ -60,7 +62,7 @@ function buscaTarefaNaoCancelada($conexao)
 
 function atualizaRotinaDiaria($conexao, $idTarefa, $tarefa){
 
-    $query = "update tarefa set dataInicial=now(), dataFinal=now() where frequencia='Diariamente' and idTarefa ='{$idTarefa}'";
+    $query = "update tarefa set dataInicial=now(), dataFinal=now(), status='Em andamento' where frequencia='Diariamente' and idTarefa ='{$idTarefa}'";
     mysqli_query($conexao, $query);
     $query2 = "insert into historico (nomeTarefa, status, frequencia, descricao, dataInicial, dataFinal, idTarefa, idUsuario) values
             ('{$tarefa['nomeTarefa']}','Em andamento','{$tarefa['frequencia']}','{$tarefa['descricao']}',now(), now(),'{$idTarefa}','{$tarefa['idUsuario']}')";

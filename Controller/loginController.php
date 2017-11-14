@@ -11,6 +11,7 @@ require_once "../model/Membro.php";
 require_once  "../DAO/membroDAO.php";
 require_once "../util/mostraAlerta.php";
 
+
 $funcionalidade = $_POST["funcionalidade"];
 
 if($funcionalidade == "logar"){

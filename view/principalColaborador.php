@@ -32,7 +32,7 @@ $template ->menuHomeColaborador();
 
                 </tr>
                 <?php
-                $tarefas = buscaHistoricoEmAndamento($conexao);
+                $tarefas = buscaHistoricoEmAndamento($conexao, $_SESSION["usuario_id"]);
                 foreach ($tarefas as $tarefa) :
                     ?>
 
