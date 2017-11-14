@@ -27,6 +27,7 @@ if ($funcionalidade == "create") {
     $status = "Em andamento";
     $idUsuario = $_POST["designado"];
 
+
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 
     insereTarefa($conexao, $t);

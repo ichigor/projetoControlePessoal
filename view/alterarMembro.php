@@ -117,7 +117,7 @@ $dado = buscaMembro($conexao, $idUsuario);
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-                <button type="button" onclick="goBack()" class="btn btn-default">Cancelar</button>
+                <a href="listarTarefas.php" type="button" class="btn btn-default">Cancelar</a>
                 <button type="submit" class="btn btn-success pull-right">Alterar</button>
             </div>
             <!-- /.box-footer -->

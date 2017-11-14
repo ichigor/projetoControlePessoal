@@ -96,7 +96,7 @@ $template->menuMembros();
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <button type="button" onclick="goBack()" class="btn btn-default">Cancelar</button>
+                    <a href="listarMembros.php" type="button" class="btn btn-default">Cancelar</a>
                     <button type="submit" class="btn btn-success pull-right">Cadastrar</button>
                 </div>
                 <!-- /.box-footer -->

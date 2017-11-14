@@ -79,7 +79,7 @@ $membro = buscaMembro($conexao, $dado['idUsuario']);
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-                <button type="button" onclick="goBack()" class="btn btn-default">Voltar</button>
+                <a href="listarTarefasColaborador.php" type="button" class="btn btn-default">Voltar</a>
             </div>
             <!-- /.box-footer -->
         </form>

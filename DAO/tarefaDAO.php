@@ -49,7 +49,17 @@ function buscaTarefa($conexao, $idTarefa)
 }
 
 //verificar como vai ficar essa funcao
-function buscaTarefaNaoCancelada($conexao, $idUsuario)
+function buscaTarefaNaoCancelada($conexao)
+{
+    $tarefas = array();
+    $resultado = mysqli_query($conexao, "select * from tarefa where status <> 'Cancelada'");
+    while ($tarefa = mysqli_fetch_assoc($resultado)) {
+        array_push($tarefas, $tarefa);
+    }
+    return $tarefas;
+}
+
+function buscaTarefaNaoCanceladaColaborador($conexao, $idUsuario)
 {
     $tarefas = array();
     $resultado = mysqli_query($conexao, "select * from tarefa where status <> 'Cancelada' and idUsuario='{$idUsuario}'");
@@ -58,7 +68,6 @@ function buscaTarefaNaoCancelada($conexao, $idUsuario)
     }
     return $tarefas;
 }
-
 
 function atualizaRotinaDiaria($conexao, $idTarefa, $tarefa){
 

@@ -69,7 +69,9 @@ $dado = buscaTarefa($conexao, $idTarefa);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" value="<?= $dado['dataInicial'] ?>" required>
+                                <input type="text" class="form-control pull-right" id="datepicker" name="dataInicial" value="<?= $dado['dataInicial'] ?>" required>
+
+<!--                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" value="--><?//= $dado['dataInicial'] ?><!--" required>-->
                             </div>
                         </div>
                     </div>
@@ -83,7 +85,8 @@ $dado = buscaTarefa($conexao, $idTarefa);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" value="<?= $dado['dataFinal'] ?>" required>
+                                <input type="text" class="form-control pull-right" id="datepicker2" name="dataFinal" value="<?= $dado['dataFinal'] ?>" required>
+<!--                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" value="--><?//= $dado['dataFinal'] ?><!--" required>-->
                             </div>
                         </div>
                     </div>

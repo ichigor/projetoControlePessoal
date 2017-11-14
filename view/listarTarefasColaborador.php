@@ -26,7 +26,7 @@ $template ->menuTarefasColaborador();
                         <th>Frequencia</th>
                     </tr>
                     <?php
-                    $tarefas = buscaTarefaNaoCancelada($conexao, $_SESSION["usuario_id"]);
+                    $tarefas = buscaTarefaNaoCanceladaColaborador($conexao, $_SESSION["usuario_id"]);
                     foreach ($tarefas as $tarefa) :
                         ?>
                         <tr>

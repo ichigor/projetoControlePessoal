@@ -23,7 +23,7 @@ $membros = listaColaboradoresAtivos($conexao);
             </div>
             <br><br>
             <!-- /.box-header -->
-            <!-- form start  ALTERAR PARA ENVIAR PARA O CONTROLLER-->
+            <!-- form start -->
             <form class="form-horizontal" action="../Controller/tarefaController.php" method="POST">
                 <input type="hidden" value="create" name="funcionalidade">
                 <div class="box-body">
@@ -60,7 +60,8 @@ $membros = listaColaboradoresAtivos($conexao);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" required>
+<!--                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" required>-->
+                                <input type="text" class="form-control pull-right" id="datepicker" name="dataInicial" required>
                             </div>
                         </div>
                     </div>
@@ -74,7 +75,8 @@ $membros = listaColaboradoresAtivos($conexao);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" required>
+                                <input type="text" class="form-control pull-right" id="datepicker2" name="dataFinal" required>
+<!--                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" required>-->
                             </div>
                         </div>
                     </div>
@@ -89,7 +91,7 @@ $membros = listaColaboradoresAtivos($conexao);
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <button type="button" onclick="goBack()" class="btn btn-default">Cancelar</button>
+                    <a href="principalGerente.php" type="button" class="btn btn-default">Cancelar</a>
                     <button type="submit" class="btn btn-success pull-right">Cadastrar</button>
                 </div>
                 <!-- /.box-footer -->
