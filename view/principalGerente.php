@@ -18,7 +18,8 @@ $template->menuHome();
 
 
 ?>
-<?php mostraAlerta("success"); ?>
+<?php mostraAlerta("success");
+mostraAlerta("danger");?>
     <div class="col-md-12">
         <h1>Tarefas para o dia de Hoje</h1>
         <div class="box box-danger">

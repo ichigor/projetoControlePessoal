@@ -34,6 +34,12 @@ if ($funcionalidade == "create") {
     $dataFinal = date_format($date, "Y-m-d");
 
 
+    if($dataInicial > $dataFinal){
+        $_SESSION["danger"] = "Data inicial não pode ser maior que final ! ! !";
+        header("Location: ../view/principalGerente.php");
+        die();
+    }
+
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 
     insereTarefa($conexao, $t);
