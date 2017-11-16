@@ -26,13 +26,11 @@ $template->menuTarefas();
                         <th>Nome</th>
                         <th>Status</th>
                         <th>Responsavel</th>
-
                     </tr>
                     <?php
                     $tarefas = listaHistorico($conexao);
                     foreach ($tarefas as $tarefa) :
                         ?>
-
                         <tr>
                             <td>
                                 <a href="dadosHistorico.php?idHistorico=<?= $tarefa['idHistorico'] ?> "><?= $tarefa['nomeTarefa'] ?></a>

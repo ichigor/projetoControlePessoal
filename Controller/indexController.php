@@ -8,7 +8,6 @@
 
 class indexController
 {
-
     public function index()
     {
         include "view/login.php";

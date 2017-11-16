@@ -9,14 +9,14 @@
 class Historico
 {
 
-    public $nomeTarefa;
-    public $status;
-    public $frequencia;
-    public $descricao;
-    public $dataInicial;
-    public $dataFinal;
-    public $idUsuario;
-    public $idTarefa;
+    private $nomeTarefa;
+    private $status;
+    private $frequencia;
+    private $descricao;
+    private $dataInicial;
+    private $dataFinal;
+    private $idUsuario;
+    private $idTarefa;
 
     public function __construct($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idTarefa, $idUsuario)
     {

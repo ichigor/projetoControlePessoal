@@ -26,6 +26,8 @@ if ($funcionalidade == "create") {
     $ativo = 1;
     $tipo = $_POST["tipo"];
 
+    verificaCpfExistente($conexao, $cpf);
+
     $m = new Membro($nome, $usuario, $senha, $celular, $ativo, $email, $cpf, $telefone, $endereco, $rg, $tipo);
 
     insereMembro($conexao, $m);
@@ -67,6 +69,18 @@ if ($funcionalidade == "create") {
     ativarMembro($conexao, $idUsuario);
     $_SESSION["success"] = "Membro recuperado com sucesso ! ! !";
     header("Location: ../view/recuperarMembro.php");
+}
+
+
+function verificaCpfExistente($conexao, $cpf){
+    $retorno = verificaCpf($conexao, $cpf);
+    if($retorno == NULL){
+    }else{
+        $_SESSION["danger"] = "Ja existe um membro com este CPF cadastrado ! ! !";
+        header("Location: ../view/principalGerente.php");
+        die();
+    }
+
 }
 
 

@@ -22,14 +22,12 @@ $template->menuMembros();
                 <table class="table table-striped">
                     <tr>
                         <th>Nome</th>
-
                         <th>Recuperar</th>
                     </tr>
                     <?php
                     $membros = listaMembrosDesativados($conexao);
                     foreach ($membros as $membro) :
                         ?>
-
                         <tr>
                             <td>
                                 <a href="dadosMembro.php?idUsuario=<?= $membro['idUsuario'] ?> "><?= $membro['nome'] ?></a>
@@ -41,9 +39,7 @@ $template->menuMembros();
                                     <button class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></button>
                                 </form>
                             </td>
-
                         </tr>
-
                         <?php
                     endforeach
                     ?>

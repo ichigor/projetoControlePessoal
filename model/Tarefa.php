@@ -9,13 +9,13 @@
 class Tarefa
 {
 
-    public $nomeTarefa;
-    public $status;
-    public $frequencia;
-    public $descricao;
-    public $dataInicial;
-    public $dataFinal;
-    public $idUsuario;
+    private $nomeTarefa;
+    private $status;
+    private $frequencia;
+    private $descricao;
+    private $dataInicial;
+    private $dataFinal;
+    private $idUsuario;
 
     /**
      * Tarefa constructor.

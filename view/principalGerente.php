@@ -23,7 +23,6 @@ mostraAlerta("danger");?>
     <div class="col-md-12">
         <h1>Tarefas para o dia de Hoje</h1>
         <div class="box box-danger">
-
             <!-- /.box-header -->
             <div class="box-body no-padding">
                 <table class="table table-striped">
@@ -31,13 +30,11 @@ mostraAlerta("danger");?>
                         <th>Nome</th>
                         <th>Status</th>
                         <th>Responsavel</th>
-
                     </tr>
                     <?php
                     $tarefas = buscaHistoricoDia($conexao);
                     foreach ($tarefas as $tarefa) :
                         ?>
-
                         <tr>
                             <td>
                                 <a href="dadosHistorico.php?idHistorico=<?= $tarefa['idHistorico'] ?> "><?= $tarefa['nomeTarefa'] ?></a>

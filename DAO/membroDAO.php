@@ -12,7 +12,8 @@ function insereMembro($conexao, $m)
 {
 
     $query = "insert into usuario (nome, usuario, senha, celular, ativo, email, cpf, telefone, endereco, rg, tipo) values
-            ('{$m->nome}','{$m->usuario}','{$m->senha}','{$m->celular}','{$m->ativo}', '{$m->email}', '{$m->cpf}','{$m->telefone}','{$m->endereco}','{$m->rg}', '{$m->tipo}')";
+            ('{$m->getNome()}','{$m->getUsuario()}','{$m->getSenha()}','{$m->getCelular()}','{$m->getAtivo()}', '{$m->getEmail()}',
+             '{$m->getCpf()}','{$m->getTelefone()}','{$m->getEndereco()}','{$m->getRg()}', '{$m->getTipo()}')";
     return mysqli_query($conexao, $query);
 }
 
@@ -59,7 +60,9 @@ function inativarMembro($conexao, $idUsuario)
 function alteraMembro($conexao, $m, $idUsuario)
 {
 
-    $query = "update usuario set nome= '{$m->nome}', usuario = '{$m->usuario}', senha= '{$m->senha}',celular = '{$m->celular}', email= '{$m->email}', telefone='{$m->telefone}', endereco='{$m->endereco}', rg='{$m->rg}', tipo='{$m->tipo}' where idUsuario ='{$idUsuario}'";
+    $query = "update usuario set nome= '{$m->getNome()}', usuario = '{$m->getUsuario()}', senha= '{$m->getSenha()}',
+              celular = '{$m->getCelular()}', email= '{$m->getEmail()}', telefone='{$m->getTelefone()}',
+              endereco='{$m->getEndereco()}', rg='{$m->getRg()}', tipo='{$m->getTipo()}' where idUsuario ='{$idUsuario}'";
     return mysqli_query($conexao, $query);
 
 }
@@ -90,5 +93,11 @@ function listaColaboradoresAtivos($conexao)
 function buscaLogin($conexao, $usuario, $senha)
 {
     $resultado = mysqli_query($conexao, "select * from usuario where usuario='{$usuario}' and senha = '{$senha}'");
+    return mysqli_fetch_assoc($resultado);
+
+}
+
+function verificaCpf($conexao, $cpf){
+    $resultado = mysqli_query($conexao, "select * from usuario where cpf='{$cpf}'");
     return mysqli_fetch_assoc($resultado);
 }

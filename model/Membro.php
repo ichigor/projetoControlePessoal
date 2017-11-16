@@ -10,17 +10,17 @@
 class Membro
 {
 
-    public $nome;
-    public $usuario;
-    public $senha;
-    public $celular;
-    public $ativo;
-    public $email;
-    public $cpf;
-    public $telefone;
-    public $endereco;
-    public $rg;
-    public $tipo;
+    private $nome;
+    private $usuario;
+    private $senha;
+    private $celular;
+    private $ativo;
+    private $email;
+    private $cpf;
+    private $telefone;
+    private $endereco;
+    private $rg;
+    private $tipo;
 
     /**
      * Usuario constructor.
@@ -134,17 +134,17 @@ class Membro
     /**
      * @return mixed
      */
-    public function getMail()
+    public function getEmail()
     {
-        return $this->mail;
+        return $this->email;
     }
 
     /**
-     * @param mixed $mail
+     * @param mixed $email
      */
-    public function setMail($mail)
+    public function setEmail($email)
     {
-        $this->mail = $mail;
+        $this->email = $email;
     }
 
     /**

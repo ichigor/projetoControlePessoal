@@ -62,7 +62,6 @@ $membros = listaColaboradoresAtivos($conexao);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <!--                                <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataInicial" required>-->
                                 <input type="text" class="form-control pull-right" id="datepicker" name="dataInicial"
                                        required>
                             </div>
@@ -79,7 +78,6 @@ $membros = listaColaboradoresAtivos($conexao);
                                 </div>
                                 <input type="text" class="form-control pull-right" id="datepicker2" name="dataFinal"
                                        required>
-                                <!--                                <input type="text" class="form-control pull-right" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="dataFinal" required>-->
                             </div>
                         </div>
                     </div>

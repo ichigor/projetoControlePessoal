@@ -80,7 +80,8 @@ $dado = buscaMembro($conexao, $idUsuario);
                     <label for="celular" class="col-sm-2 control-label">Celular</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="celular" name="celular" placeholder="Celular"
-                               value="<?= $dado['celular'] ?>" required>
+                               data-inputmask='"mask": "(99) 99999-9999"' data-mask value="<?= $dado['celular'] ?>"
+                               required>
                     </div>
                 </div>
                 <div class="form-group">

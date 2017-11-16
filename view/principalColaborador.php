@@ -28,8 +28,6 @@ $template->menuHomeColaborador();
                     <th>Nome</th>
                     <th>Data Limite</th>
                     <th>Enviar para avaliação</th>
-
-
                 </tr>
                 <?php
                 $tarefas = buscaHistoricoEmAndamento($conexao, $_SESSION["usuario_id"]);

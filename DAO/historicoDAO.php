@@ -12,7 +12,8 @@ include("../util/conecta.php");
 function insereHistorico($conexao, $h)
 {
     $query = "insert into historico (nomeTarefa, status, frequencia, descricao, dataInicial, dataFinal, idTarefa, idUsuario) values
-            ('{$h->nomeTarefa}','{$h->status}','{$h->frequencia}','{$h->descricao}','{$h->dataInicial}', '{$h->dataFinal}','{$h->idTarefa}','{$h->idUsuario}')";
+            ('{$h->getNomeTarefa()}','{$h->getStatus()}','{$h->getFrequencia()}','{$h->getDescricao()}','{$h->getDataInicial()}',
+             '{$h->getDataFinal()}','{$h->getIdTarefa()}','{$h->getIdUsuario()}')";
     return mysqli_query($conexao, $query);
 }
 
@@ -96,9 +97,10 @@ function naoConcluirTarefa($conexao, $idTarefa)
 function buscaTarefasAvaliadas($conexao)
 {
     //verificar se vai precisar da linha de baixo
-    $idHistorico = buscarUltimaHistorico($conexao);
+    //$idHistorico = buscarUltimaHistorico($conexao);
     $tarefas = array();
-    $resultado = mysqli_query($conexao, "select * from historico where status = 'Concluida'  OR status = 'Não Concluida'  order by idHistorico desc");
+    $resultado = mysqli_query($conexao, "select * from historico where status = 'Concluida' 
+    OR status = 'Não Concluida'  order by idHistorico desc");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
         array_push($tarefas, $tarefa);
     }

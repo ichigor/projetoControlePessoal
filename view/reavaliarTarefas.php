@@ -28,8 +28,6 @@ $template->menuTarefas();
                     <th>Nome</th>
                     <th>Status</th>
                     <th>Reavaliar tarefa</th>
-
-
                 </tr>
                 <?php
                 $tarefas = buscaTarefasAvaliadas($conexao);

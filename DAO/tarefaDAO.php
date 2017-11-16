@@ -12,7 +12,8 @@ include("historicoDAO.php");
 function insereTarefa($conexao, $t)
 {
     $query = "insert into tarefa (nomeTarefa, status, frequencia, descricao, dataInicial, dataFinal, idUsuario) values
-            ('{$t->nomeTarefa}','{$t->status}','{$t->frequencia}','{$t->descricao}','{$t->dataInicial}', '{$t->dataFinal}','{$t->idUsuario}')";
+            ('{$t->getNomeTarefa()}','{$t->getStatus()}','{$t->getFrequencia()}','{$t->getDescricao()}','{$t->getDataInicial()}',
+             '{$t->getDataFinal()}','{$t->getIdUsuario()}')";
     return mysqli_query($conexao, $query);
 }
 
@@ -34,8 +35,11 @@ function alteraTarefa($conexao, $t, $idTarefa)
 {
 
     $idHistorico = buscarUltimaHistorico($conexao, $idTarefa);
-    $query = "update tarefa set nomeTarefa= '{$t->nomeTarefa}', frequencia= '{$t->frequencia}',descricao = '{$t->descricao}', dataInicial= '{$t->dataInicial}', dataFinal='{$t->dataFinal}', idUsuario='{$t->idUsuario}' where idTarefa ='{$idTarefa}'";
-    $query2 = "update historico set nomeTarefa= '{$t->nomeTarefa}', frequencia= '{$t->frequencia}',descricao = '{$t->descricao}', dataInicial= '{$t->dataInicial}', dataFinal='{$t->dataFinal}', idUsuario='{$t->idUsuario}' where idTarefa ='{$idTarefa}' and idHistorico='{$idHistorico['max(idHistorico)']}'";
+    $query = "update tarefa set nomeTarefa= '{$t->getNomeTarefa()}', frequencia= '{$t->getFrequencia()}',descricao = '{$t->getDescricao()}',
+    dataInicial= '{$t->getDataInicial()}', dataFinal='{$t->getDataFinal()}', idUsuario='{$t->getIdUsuario()}' where idTarefa ='{$idTarefa}'";
+    $query2 = "update historico set nomeTarefa= '{$t->getNomeTarefa()}', frequencia= '{$t->getFrequencia()}',descricao = '{$t->getDescricao()}',
+    dataInicial= '{$t->getDataInicial()}', dataFinal='{$t->getDataFinal()}', idUsuario='{$t->getIdUsuario()}' where idTarefa ='{$idTarefa}' 
+    and idHistorico='{$idHistorico['max(idHistorico)']}'";
     mysqli_query($conexao, $query);
     return mysqli_query($conexao, $query2);
 

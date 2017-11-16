@@ -34,11 +34,7 @@ if ($funcionalidade == "create") {
     $dataFinal = date_format($date, "Y-m-d");
 
 
-    if($dataInicial > $dataFinal){
-        $_SESSION["danger"] = "Data inicial não pode ser maior que final ! ! !";
-        header("Location: ../view/principalGerente.php");
-        die();
-    }
+    verificaData($dataInicial, $dataFinal);
 
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 
@@ -71,6 +67,8 @@ if ($funcionalidade == "create") {
     $date = date_create($dataFinal);
     $dataFinal = date_format($date, "Y-m-d");
 
+    verificaData($dataInicial, $dataFinal);
+
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 
     //talvez adicionar para alterar o ultimo historico com idTarefa maior
@@ -84,4 +82,14 @@ if ($funcionalidade == "create") {
     $_SESSION["warning"] = "A tarefa selecionada foi cancelada com sucesso ! ! !";
     cancelarTarefa($conexao, $idTarefa);
     header("Location: ../view/listarTarefas.php");
+}
+
+
+
+function verificaData($dataInicial, $dataFinal){
+    if($dataInicial > $dataFinal){
+        $_SESSION["danger"] = "Data inicial não pode ser maior que final ! ! !";
+        header("Location: ../view/principalGerente.php");
+        die();
+    }
 }
