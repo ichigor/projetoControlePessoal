@@ -50,18 +50,9 @@ $dataFinal = date_format($date, "d-m-Y");
                         <label class="col-sm-2 control-label">Frequencia</label>
                         <div class="col-sm-5">
                             <select name="frequencia" class="form-control" style="width: 100%;">
-                                <?php
-                                if ($dado['frequencia'] == 'Diariamente') {
-                                    $diariamente = "selected= 'selected'";
-                                } else if ($dado['frequencia'] == 'Mensalmente') {
-                                    $mensalmente = "selected= 'selected'";
-                                } else if ($dado['frequencia'] == 'Eventualmente') {
-                                    $eventualmente = "selected= 'selected'";
-                                }
-                                ?>
-                                <option value="Diariamente" <?= $diariamente ?>>Diariamente</option>
-                                <option value="Mensalmente"<?= $mensalmente ?>>Mensalmente</option>
-                                <option value="Eventualmente"<?= $eventualmente ?>>Eventualmente</option>
+                                <option value="Diariamente" <?= ($dado['frequencia']=='Diariamente')? 'selected':'' ?>>Diariamente</option>
+                                <option value="Mensalmente"<?= ($dado['frequencia']=='Mensalmente')? 'selected':'' ?>>Mensalmente</option>
+                                <option value="Eventualmente"<?= ($dado['frequencia']=='Eventualmente')? 'selected':'' ?>>Eventualmente</option>
                             </select>
                         </div>
                     </div>
@@ -70,7 +61,7 @@ $dataFinal = date_format($date, "d-m-Y");
                         <div class="col-sm-5">
                             <select name="designado" class="form-control" style="width: 100%;">
                                 <?php foreach ($membros as $membro) : ?>
-                                    <option value="<?= $membro['idUsuario'] ?>"><?= $membro['nome'] ?></option>
+                                    <option value="<?= $membro['idUsuario'] ?>" <?= ($dado['idUsuario']==$membro['idUsuario'])? 'selected':''?> ><?= $membro['nome'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
@@ -84,8 +75,6 @@ $dataFinal = date_format($date, "d-m-Y");
                                 </div>
                                 <input type="text" class="form-control pull-right" id="datepicker" name="dataInicial"
                                        value="<?= $dataInicial ?>" required>
-
-
                             </div>
                         </div>
                     </div>
