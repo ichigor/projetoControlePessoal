@@ -20,7 +20,8 @@ function insereHistorico($conexao, $h)
 function buscaHistoricoDia($conexao)
 {
     $tarefas = array();
-    $resultado = mysqli_query($conexao, "select * from historico where dataFinal = CURDATE() or dataInicial = CURDATE() and status <>'Cancelada'");
+    $resultado = mysqli_query($conexao, "select * from historico where dataFinal = CURDATE() or dataInicial = CURDATE() 
+    and status <>'Cancelada'");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
         array_push($tarefas, $tarefa);
     }
@@ -40,7 +41,8 @@ function listaHistorico($conexao)
 function buscaHistoricoEmAndamento($conexao, $idUsuario)
 {
     $tarefas = array();
-    $resultado = mysqli_query($conexao, "select * from historico where idUsuario='{$idUsuario}' and status = 'Em andamento' and dataFinal = CURDATE() or dataInicial = CURDATE() and status = 'Em andamento' and idUsuario='{$idUsuario}'");
+    $resultado = mysqli_query($conexao, "select * from historico where idUsuario='{$idUsuario}' and status = 'Em andamento' 
+    and dataFinal = CURDATE() or dataInicial = CURDATE() and status = 'Em andamento' and idUsuario='{$idUsuario}'");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
         array_push($tarefas, $tarefa);
     }
@@ -50,7 +52,8 @@ function buscaHistoricoEmAndamento($conexao, $idUsuario)
 function buscaHistoricoEmAvaliacao($conexao)
 {
     $tarefas = array();
-    $resultado = mysqli_query($conexao, "select * from historico where status = 'Em avaliação' and dataFinal = CURDATE() or dataInicial = CURDATE() and status = 'Em avaliação'");
+    $resultado = mysqli_query($conexao, "select * from historico where status = 'Em avaliação' and dataFinal = CURDATE() 
+    or dataInicial = CURDATE() and status = 'Em avaliação'");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
         array_push($tarefas, $tarefa);
     }
@@ -67,9 +70,9 @@ function enviarParaAvalicao($conexao, $idTarefa)
     return mysqli_query($conexao, $query2);
 }
 
-function buscarUltimaHistorico($conexao, $idTarefa = null)
+function buscarUltimaHistorico($conexao, $idTarefa)
 {
-    //PROBLEMA AQUI ESTA PEGANDO SEMPRE O ULTIMO E NAO O ULTIMO DAQUELE
+
     $query = "Select max(idHistorico) from historico where idTarefa = '{$idTarefa}'";
     $retorno = mysqli_query($conexao, $query);
     return mysqli_fetch_assoc($retorno);
@@ -96,11 +99,9 @@ function naoConcluirTarefa($conexao, $idTarefa)
 
 function buscaTarefasAvaliadas($conexao)
 {
-    //verificar se vai precisar da linha de baixo
-    //$idHistorico = buscarUltimaHistorico($conexao);
     $tarefas = array();
-    $resultado = mysqli_query($conexao, "select * from historico where status = 'Concluida' 
-    OR status = 'Não Concluida'  order by idHistorico desc");
+    $resultado = mysqli_query($conexao, "select * from historico where status = 'Concluida' and dataFinal >= CURDATE()
+    OR status = 'Não Concluida' and dataFinal >= CURDATE() order by idHistorico desc");
     while ($tarefa = mysqli_fetch_assoc($resultado)) {
         array_push($tarefas, $tarefa);
     }
