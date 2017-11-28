@@ -21,12 +21,20 @@ class conexao{
     private $db;
     private $con;
 
+//    public function __construct()
+//    {
+//        $this->servidor = 'localhost';
+//        $this->usuario = 'root';
+//        $this->senha = '';
+//        $this->db = 'projetoIntegrador';
+//    }
+
     public function __construct()
     {
-        $this->servidor = 'localhost';
-        $this->usuario = 'root';
-        $this->senha = '';
-        $this->db = 'projetoIntegrador';
+        $this->servidor = 'ipobfcpvprjpmdo9.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+        $this->usuario = 'szsb1h8zi5dw2atz';
+        $this->senha = 'zjg1ei8rvnc9vrzo';
+        $this->db = 'xuhitdelpl3u60i6';
     }
 
 
