@@ -15,8 +15,8 @@ $template->menuTarefas();
 
 
 $idHistorico=$_GET['idHistorico'];
-$dado = buscaHistorico($conexao, $idHistorico);
-$membro = buscaMembro($conexao, $dado['idUsuario']);
+$dado = buscaHistorico($idHistorico);
+$membro = buscaMembro($dado['idUsuario']);
 
 $date=date_create($dado['dataInicial']);
 $dataInicial = date_format($date,"d-m-Y");

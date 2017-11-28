@@ -27,7 +27,7 @@ mostraAlerta("warning"); ?>
                         <th>Cancelar</th>
                     </tr>
                     <?php
-                    $tarefas = buscaTarefaNaoCancelada($conexao);
+                    $tarefas = buscaTarefaNaoCancelada();
                     foreach ($tarefas as $tarefa) :
                         ?>
 

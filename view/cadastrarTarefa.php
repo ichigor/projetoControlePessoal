@@ -12,7 +12,7 @@ $template = new templateController();
 $template->template();
 $template->menuTarefas();
 
-$membros = listaColaboradoresAtivos($conexao);
+$membros = listaColaboradoresAtivos();
 ?>
 
     <div class="col-md-12">

@@ -18,7 +18,9 @@ if ($funcionalidade == "logar") {
     $usuario = $_POST["usuario"];
     $senha = $_POST["senha"];
 
-    $resultado = buscaLogin($conexao, $usuario, $senha);
+
+    $resultado = buscaLogin($usuario, $senha);
+
 
     if ($resultado == null) {
         $_SESSION["danger"] = "Usuario ou senha invalido.";
@@ -35,7 +37,7 @@ if ($funcionalidade == "logar") {
     }
 } else if ($funcionalidade == "deslogar") {
     session_destroy();
-    session_start();
+    //session_start();
     header("Location: ../index.php");
 }
 

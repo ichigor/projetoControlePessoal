@@ -26,11 +26,11 @@ if ($funcionalidade == "create") {
     $ativo = 1;
     $tipo = $_POST["tipo"];
 
-    verificaCpfExistente($conexao, $cpf);
+    verificaCpfExistente($cpf);
 
     $m = new Membro($nome, $usuario, $senha, $celular, $ativo, $email, $cpf, $telefone, $endereco, $rg, $tipo);
 
-    insereMembro($conexao, $m);
+    insereMembro($m);
 
     $_SESSION["success"] = "Membro cadastrado com sucesso ! ! !";
     header("Location: ../view/principalGerente.php");
@@ -52,28 +52,29 @@ if ($funcionalidade == "create") {
 
     $m = new Membro($nome, $usuario, $senha, $celular, $ativo, $email, $cpf, $telefone, $endereco, $rg, $tipo);
 
-    alteraMembro($conexao, $m, $idUsuario);
+    alteraMembro($m, $idUsuario);
 
     $_SESSION["success"] = "Membro alterado com sucesso ! ! !";
     header("Location: ../view/listarMembros.php");
 
 } elseif ($funcionalidade == "list") {
-    listaMembros($conexao);
+    listaMembros();
 } elseif ($funcionalidade == "delete") {
     $idUsuario = $_POST["idUsuario"];
-    inativarMembro($conexao, $idUsuario);
+    inativarMembro($idUsuario);
     $_SESSION["warning"] = "Membro inativado com sucesso ! ! !";
     header("Location: ../view/listarMembros.php");
 } elseif ($funcionalidade == "active") {
     $idUsuario = $_POST["idUsuario"];
-    ativarMembro($conexao, $idUsuario);
+    ativarMembro($idUsuario);
     $_SESSION["success"] = "Membro recuperado com sucesso ! ! !";
     header("Location: ../view/recuperarMembro.php");
 }
 
 
-function verificaCpfExistente($conexao, $cpf){
-    $retorno = verificaCpf($conexao, $cpf);
+function verificaCpfExistente($cpf){
+
+    $retorno = verificaCpf($cpf);
     if($retorno == NULL){
     }else{
         $_SESSION["danger"] = "Ja existe um membro com este CPF cadastrado ! ! !";

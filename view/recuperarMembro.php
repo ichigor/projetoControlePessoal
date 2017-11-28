@@ -25,7 +25,7 @@ $template->menuMembros();
                         <th>Recuperar</th>
                     </tr>
                     <?php
-                    $membros = listaMembrosDesativados($conexao);
+                    $membros = listaMembrosDesativados();
                     foreach ($membros as $membro) :
                         ?>
                         <tr>

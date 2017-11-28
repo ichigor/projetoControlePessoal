@@ -30,7 +30,7 @@ $template->menuHomeColaborador();
                     <th>Enviar para avaliação</th>
                 </tr>
                 <?php
-                $tarefas = buscaHistoricoEmAndamento($conexao, $_SESSION["usuario_id"]);
+                $tarefas = buscaHistoricoEmAndamento($_SESSION["usuario_id"]);
                 foreach ($tarefas as $tarefa) :
                     ?>
 

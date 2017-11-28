@@ -38,13 +38,13 @@ if ($funcionalidade == "create") {
 
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 
-    insereTarefa($conexao, $t);
+    insereTarefa($t);
 
-    $ultimaTarefa = buscarUltimaTarefa($conexao);
+    $ultimaTarefa = buscarUltimaTarefa();
 
     $h = new Historico($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $ultimaTarefa['max(idTarefa)'], $idUsuario);
 
-    insereHistorico($conexao, $h);
+    insereHistorico($h);
 
     $_SESSION["success"] = "Sua tarefa foi criada com sucesso ! ! !";
     header("Location: ../view/principalGerente.php");
@@ -72,7 +72,9 @@ if ($funcionalidade == "create") {
     $t = new Tarefa($nomeTarefa, $status, $frequencia, $descricao, $dataInicial, $dataFinal, $idUsuario);
 
     //talvez adicionar para alterar o ultimo historico com idTarefa maior
-    alteraTarefa($conexao, $t, $idTarefa);
+    alteraTarefa($t, $idTarefa);
+
+
 
     $_SESSION["success"] = "Sua tarefa foi atualizada com sucesso ! ! !";
     header("Location: ../view/listarTarefas.php");
@@ -80,11 +82,9 @@ if ($funcionalidade == "create") {
 } elseif ($funcionalidade == "delete") {
     $idTarefa = $_POST["idTarefa"];
     $_SESSION["warning"] = "A tarefa selecionada foi cancelada com sucesso ! ! !";
-    cancelarTarefa($conexao, $idTarefa);
+    cancelarTarefa($idTarefa);
     header("Location: ../view/listarTarefas.php");
 }
-
-
 
 function verificaData($dataInicial, $dataFinal){
     if($dataInicial > $dataFinal){

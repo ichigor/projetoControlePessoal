@@ -13,20 +13,20 @@ require_once "../DAO/membroDAO.php";
 
 date_default_timezone_set("Brazil/East");
 
-$tarefas = buscaTarefasDiarias($conexao);
+$tarefas = buscaTarefasDiarias();
 
 
 foreach ($tarefas as $value) {
 
-    $membro = buscaMembro($conexao, $value['idUsuario']);
+    $membro = buscaMembro($value['idUsuario']);
 
     if ($membro['ativo'] == 0) {
         echo "cancelo tarefa diaria </br>";
-        cancelarTarefa($conexao, $value['idTarefa']);
+        cancelarTarefa($value['idTarefa']);
     } else if ($value['dataFinal'] != date('Y-m-d') and $value['dataInicial'] != date('Y-m-d')) {
         if ($value['dataFinal'] < date('Y-m-d') and $value['dataInicial'] < date('Y-m-d')) {
             echo "atualizo data diaria </br>";
-            atualizaRotinaDiaria($conexao, $value['idTarefa'], $value);
+            atualizaRotinaDiaria( $value['idTarefa'], $value);
         }
     } else {
         echo "nada diario</br>";
@@ -34,19 +34,19 @@ foreach ($tarefas as $value) {
 }
 
 
-$mensais = buscaTarefasMensais($conexao);
+$mensais = buscaTarefasMensais();
 
 
 foreach ($mensais as $value) {
 
-    $membro = buscaMembro($conexao, $value['idUsuario']);
+    $membro = buscaMembro($value['idUsuario']);
 
     if ($membro['ativo'] == 0) {
         echo "cancelo tarefa mensal </br>";
-        cancelarTarefa($conexao, $value['idTarefa']);
+        cancelarTarefa($value['idTarefa']);
     } else if ($value['dataInicial'] < date('Y-m-d')) {
         echo "atualizo data mensal </br>";
-        atualizaRotinaMensal($conexao, $value['idTarefa'], $value);
+        atualizaRotinaMensal($value['idTarefa'], $value);
     } else {
         echo "nada mensal</br>";
     }

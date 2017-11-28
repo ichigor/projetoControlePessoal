@@ -28,7 +28,7 @@ $template->menuTarefas();
                         <th>Responsavel</th>
                     </tr>
                     <?php
-                    $tarefas = listaHistorico($conexao);
+                    $tarefas = listaHistorico();
                     foreach ($tarefas as $tarefa) :
                         ?>
                         <tr>
@@ -36,7 +36,7 @@ $template->menuTarefas();
                                 <a href="dadosHistorico.php?idHistorico=<?= $tarefa['idHistorico'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
                             </td>
                             <td><?= $tarefa['status'] ?></td>
-                            <?php $membro = buscaMembro($conexao, $tarefa['idUsuario']) ?>
+                            <?php $membro = buscaMembro($tarefa['idUsuario']) ?>
                             <td>
                                 <a href="dadosMembro.php?idUsuario=<?= $tarefa['idUsuario'] ?> "><?= $membro['nome'] ?></a>
                             </td>

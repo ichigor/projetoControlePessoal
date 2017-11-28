@@ -13,10 +13,10 @@ $template = new templateController();
 $template->template();
 $template->menuTarefas();
 
-$membros = listaColaboradoresAtivos($conexao);
+$membros = listaColaboradoresAtivos();
 
 $idTarefa = $_POST['idTarefa'];
-$dado = buscaTarefa($conexao, $idTarefa);
+$dado = buscaTarefa($idTarefa);
 
 $date = date_create($dado['dataInicial']);
 $dataInicial = date_format($date, "d-m-Y");

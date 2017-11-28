@@ -28,7 +28,7 @@ $template->menuMembrosColaborador();
                         <th>Celular</th>
                     </tr>
                     <?php
-                    $membros = listaMembrosAtivos($conexao);
+                    $membros = listaMembrosAtivos();
                     foreach ($membros as $membro) :
                         ?>
                         <tr>

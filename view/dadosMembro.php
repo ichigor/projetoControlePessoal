@@ -14,7 +14,7 @@ $template->menuMembros();
 
 
 $idUsuario = $_GET['idUsuario'];
-$dado = buscaMembro($conexao, $idUsuario);
+$dado = buscaMembro($idUsuario);
 
 ?>
 

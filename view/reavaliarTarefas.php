@@ -30,7 +30,7 @@ $template->menuTarefas();
                     <th>Reavaliar tarefa</th>
                 </tr>
                 <?php
-                $tarefas = buscaTarefasAvaliadas($conexao);
+                $tarefas = buscaTarefasAvaliadas();
                 foreach ($tarefas as $tarefa) :
                     ?>
 

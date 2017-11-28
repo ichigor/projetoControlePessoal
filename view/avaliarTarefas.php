@@ -30,7 +30,7 @@ mostraAlerta("warning"); ?>
 
                     </tr>
                     <?php
-                    $tarefas = buscaHistoricoEmAvaliacao($conexao);
+                    $tarefas = buscaHistoricoEmAvaliacao();
                     foreach ($tarefas as $tarefa) :
                         ?>
 

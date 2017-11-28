@@ -15,8 +15,8 @@ $template->menuMembrosColaborador();
 
 
 $idHistorico = $_GET['idHistorico'];
-$dado = buscaHistorico($conexao, $idHistorico);
-$membro = buscaMembro($conexao, $dado['idUsuario']);
+$dado = buscaHistorico($idHistorico);
+$membro = buscaMembro($dado['idUsuario']);
 ?>
 <div class="col-md-12">
     <h1>Dados da Tarefa</h1>

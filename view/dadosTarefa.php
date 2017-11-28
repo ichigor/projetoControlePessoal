@@ -15,8 +15,8 @@ $template->menuTarefas();
 
 
 $idTarefa = $_GET['idTarefa'];
-$dado = buscaTarefa($conexao, $idTarefa);
-$membro = buscaMembro($conexao, $dado['idUsuario']);
+$dado = buscaTarefa($idTarefa);
+$membro = buscaMembro($dado['idUsuario']);
 
 $date = date_create($dado['dataInicial']);
 $dataInicial = date_format($date, "d-m-Y");

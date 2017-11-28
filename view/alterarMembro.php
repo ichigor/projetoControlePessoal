@@ -14,7 +14,7 @@ $template->menuMembros();
 
 
 $idUsuario = $_POST['idUsuario'];
-$dado = buscaMembro($conexao, $idUsuario);
+$dado = buscaMembro($idUsuario);
 
 ?>
 
@@ -135,7 +135,7 @@ $dado = buscaMembro($conexao, $idUsuario);
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-                <a href="listarTarefas.php" type="button" class="btn btn-default">Cancelar</a>
+                <a href="listarMembros.php" type="button" class="btn btn-default">Cancelar</a>
                 <button type="submit" class="btn btn-success pull-right">Alterar</button>
             </div>
             <!-- /.box-footer -->

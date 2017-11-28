@@ -29,7 +29,7 @@ mostraAlerta("warning"); ?>
                         <th>Inativar</th>
                     </tr>
                     <?php
-                    $membros = listaMembrosAtivos($conexao);
+                    $membros = listaMembrosAtivos();
                     foreach ($membros as $membro) :
                         ?>
                         <tr>

@@ -16,8 +16,8 @@ $template->menuTarefasColaborador();
 
 
 $idTarefa = $_GET['idTarefa'];
-$dado = buscaTarefa($conexao, $idTarefa);
-$membro = buscaMembro($conexao, $dado['idUsuario']);
+$dado = buscaTarefa($idTarefa);
+$membro = buscaMembro($dado['idUsuario']);
 ?>
 <div class="col-md-12">
     <h1>Dados da Tarefa</h1>

@@ -32,7 +32,7 @@ mostraAlerta("danger");?>
                         <th>Responsavel</th>
                     </tr>
                     <?php
-                    $tarefas = buscaHistoricoDia($conexao);
+                    $tarefas = buscaHistoricoDia();
                     foreach ($tarefas as $tarefa) :
                         ?>
                         <tr>
@@ -40,7 +40,7 @@ mostraAlerta("danger");?>
                                 <a href="dadosHistorico.php?idHistorico=<?= $tarefa['idHistorico'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
                             </td>
                             <td><?= $tarefa['status'] ?></td>
-                            <?php $membro = buscaMembro($conexao, $tarefa['idUsuario']) ?>
+                            <?php $membro = buscaMembro($tarefa['idUsuario']) ?>
                             <td>
                                 <a href="dadosMembro.php?idUsuario=<?= $tarefa['idUsuario'] ?> "><?= $membro['nome'] ?></a>
                             </td>
