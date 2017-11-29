@@ -18,7 +18,7 @@ $template->menuHomeColaborador();
 ?>
 <?php mostraAlerta("success"); ?>
 <div class="col-md-12">
-    <h1>Tarefas para o dia de Hoje</h1>
+    <h1>Tarefas para hoje</h1>
     <div class="box box-danger">
 
         <!-- /.box-header -->
@@ -31,27 +31,36 @@ $template->menuHomeColaborador();
                 </tr>
                 <?php
                 $tarefas = buscaHistoricoEmAndamento($_SESSION["usuario_id"]);
-                foreach ($tarefas as $tarefa) :
+                if ($tarefas == null) {
                     ?>
-
-                    <tr>
-                        <td>
-                            <a href="dadosHistoricoColaborador.php?idHistorico=<?= $tarefa['idHistorico'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
-                        </td>
-                        <td>
-                            <?= $tarefa['dataFinal'] ?>
-                        </td>
-                        <td>
-                            <form class="" action="../Controller/historicoController.php" method="post">
-                                <input type="hidden" name="idTarefa" value="<?= $tarefa['idTarefa'] ?>">
-                                <input type="hidden" name="funcionalidade" value="avaliation">
-                                <button class="btn btn-primary"><span class="glyphicon glyphicon-send"></span></button>
-                            </form>
-                        </td>
-                    </tr>
-
+                    <td>
+                        Você não possui tarefas no momento.
+                    </td>
                     <?php
-                endforeach
+                } else {
+                    foreach ($tarefas as $tarefa) :
+                        ?>
+
+                        <tr>
+                            <td>
+                                <a href="dadosHistoricoColaborador.php?idHistorico=<?= $tarefa['idHistorico'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
+                            </td>
+                            <td>
+                                <?= $tarefa['dataFinal'] ?>
+                            </td>
+                            <td>
+                                <form class="" action="../Controller/historicoController.php" method="post">
+                                    <input type="hidden" name="idTarefa" value="<?= $tarefa['idTarefa'] ?>">
+                                    <input type="hidden" name="funcionalidade" value="avaliation">
+                                    <button class="btn btn-primary"><span class="glyphicon glyphicon-send"></span>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+
+                        <?php
+                    endforeach;
+                }
                 ?>
             </table>
         </div>

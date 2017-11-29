@@ -40,7 +40,7 @@ $membros = listaColaboradoresAtivos();
                         <div class="col-sm-5">
                             <select name="frequencia" class="form-control" style="width: 100%;">
                                 <option value="Diariamente" selected="selected">Diariamente</option>
-                                <option value="Mensamente">Mensalmente</option>
+                                <option value="Mensalmente">Mensalmente</option>
                                 <option value="Eventualmente">Eventualmente</option>
                             </select>
                         </div>

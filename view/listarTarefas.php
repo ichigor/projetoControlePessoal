@@ -28,33 +28,41 @@ mostraAlerta("warning"); ?>
                     </tr>
                     <?php
                     $tarefas = buscaTarefaNaoCancelada();
-                    foreach ($tarefas as $tarefa) :
+                    if ($tarefas == null) {
                         ?>
-
-                        <tr>
-                            <td>
-                                <a href="dadosTarefa.php?idTarefa=<?= $tarefa['idTarefa'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
-                            </td>
-                            <td>
-                                <form class="" action="alterarTarefa.php" method="post">
-                                    <input type="hidden" name="idTarefa" value="<?= $tarefa['idTarefa'] ?>">
-                                    <input type="hidden" name="funcionalidade" value="update">
-                                    <button class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>
-                                    </button>
-                                </form>
-                            </td>
-                            <td>
-                                <form class="" action="../Controller/tarefaController.php" method="post">
-                                    <input type="hidden" name="idTarefa" value="<?= $tarefa['idTarefa'] ?>">
-                                    <input type="hidden" name="funcionalidade" value="delete">
-                                    <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-
+                        <td>
+                            Você não possui tarefas no momento.
+                        </td>
                         <?php
-                    endforeach
+                    } else {
+                        foreach ($tarefas as $tarefa) :
+                            ?>
+
+                            <tr>
+                                <td>
+                                    <a href="dadosTarefa.php?idTarefa=<?= $tarefa['idTarefa'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
+                                </td>
+                                <td>
+                                    <form class="" action="alterarTarefa.php" method="post">
+                                        <input type="hidden" name="idTarefa" value="<?= $tarefa['idTarefa'] ?>">
+                                        <input type="hidden" name="funcionalidade" value="update">
+                                        <button class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form class="" action="../Controller/tarefaController.php" method="post">
+                                        <input type="hidden" name="idTarefa" value="<?= $tarefa['idTarefa'] ?>">
+                                        <input type="hidden" name="funcionalidade" value="delete">
+                                        <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+
+                            <?php
+                        endforeach;
+                    }
                     ?>
                 </table>
             </div>

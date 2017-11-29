@@ -27,22 +27,30 @@ $template->menuTarefasColaborador();
                     </tr>
                     <?php
                     $tarefas = buscaTarefaNaoCanceladaColaborador($_SESSION["usuario_id"]);
-                    foreach ($tarefas as $tarefa) :
+                    if ($tarefas == null) {
                         ?>
-                        <tr>
-                            <td>
-                                <a href="dadosTarefaColaborador.php?idTarefa=<?= $tarefa['idTarefa'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
-                            </td>
-                            <td>
-                                <?= $tarefa['status'] ?>
-                            </td>
-                            <td>
-                                <?= $tarefa['frequencia'] ?>
-                            </td>
-                        </tr>
-
+                        <td>
+                            Você não possui tarefas no momento.
+                        </td>
                         <?php
-                    endforeach
+                    } else {
+                        foreach ($tarefas as $tarefa) :
+                            ?>
+                            <tr>
+                                <td>
+                                    <a href="dadosTarefaColaborador.php?idTarefa=<?= $tarefa['idTarefa'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
+                                </td>
+                                <td>
+                                    <?= $tarefa['status'] ?>
+                                </td>
+                                <td>
+                                    <?= $tarefa['frequencia'] ?>
+                                </td>
+                            </tr>
+
+                            <?php
+                        endforeach;
+                    }
                     ?>
                 </table>
             </div>

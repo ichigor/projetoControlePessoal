@@ -16,7 +16,7 @@ $template->menuTarefas();
 
 ?>
     <div class="col-md-12">
-        <h1>Historico de todas as Tarefas</h1>
+        <h1>Histórico de todas as Tarefas</h1>
         <div class="box box-danger">
 
             <!-- /.box-header -->
@@ -25,25 +25,33 @@ $template->menuTarefas();
                     <tr>
                         <th>Nome</th>
                         <th>Status</th>
-                        <th>Responsavel</th>
+                        <th>Responsável</th>
                     </tr>
                     <?php
                     $tarefas = listaHistorico();
-                    foreach ($tarefas as $tarefa) :
+                    if ($tarefas == null) {
                         ?>
-                        <tr>
-                            <td>
-                                <a href="dadosHistorico.php?idHistorico=<?= $tarefa['idHistorico'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
-                            </td>
-                            <td><?= $tarefa['status'] ?></td>
-                            <?php $membro = buscaMembro($tarefa['idUsuario']) ?>
-                            <td>
-                                <a href="dadosMembro.php?idUsuario=<?= $tarefa['idUsuario'] ?> "><?= $membro['nome'] ?></a>
-                            </td>
-                        </tr>
-
+                        <td>
+                            Você não possui tarefas no histórico no momento.
+                        </td>
                         <?php
-                    endforeach
+                    } else {
+                        foreach ($tarefas as $tarefa) :
+                            ?>
+                            <tr>
+                                <td>
+                                    <a href="dadosHistorico.php?idHistorico=<?= $tarefa['idHistorico'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
+                                </td>
+                                <td><?= $tarefa['status'] ?></td>
+                                <?php $membro = buscaMembro($tarefa['idUsuario']) ?>
+                                <td>
+                                    <a href="dadosMembro.php?idUsuario=<?= $tarefa['idUsuario'] ?> "><?= $membro['nome'] ?></a>
+                                </td>
+                            </tr>
+
+                            <?php
+                        endforeach;
+                    }
                     ?>
                 </table>
             </div>

@@ -26,22 +26,31 @@ $template->menuMembros();
                     </tr>
                     <?php
                     $membros = listaMembrosDesativados();
-                    foreach ($membros as $membro) :
+                    if ($membros == null) {
                         ?>
-                        <tr>
-                            <td>
-                                <a href="dadosMembro.php?idUsuario=<?= $membro['idUsuario'] ?> "><?= $membro['nome'] ?></a>
-                            </td>
-                            <td>
-                                <form class="" action="../Controller/membroController.php" method="post">
-                                    <input type="hidden" name="idUsuario" value="<?= $membro['idUsuario'] ?>">
-                                    <input type="hidden" name="funcionalidade" value="active">
-                                    <button class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></button>
-                                </form>
-                            </td>
-                        </tr>
+                        <td>
+                            Você não possui membros desativados.
+                        </td>
                         <?php
-                    endforeach
+                    } else {
+                        foreach ($membros as $membro) :
+                            ?>
+                            <tr>
+                                <td>
+                                    <a href="dadosMembro.php?idUsuario=<?= $membro['idUsuario'] ?> "><?= $membro['nome'] ?></a>
+                                </td>
+                                <td>
+                                    <form class="" action="../Controller/membroController.php" method="post">
+                                        <input type="hidden" name="idUsuario" value="<?= $membro['idUsuario'] ?>">
+                                        <input type="hidden" name="funcionalidade" value="active">
+                                        <button class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php
+                        endforeach;
+                    }
                     ?>
                 </table>
             </div>

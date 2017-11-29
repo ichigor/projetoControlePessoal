@@ -31,27 +31,36 @@ $template->menuTarefas();
                 </tr>
                 <?php
                 $tarefas = buscaTarefasAvaliadas();
-                foreach ($tarefas as $tarefa) :
+                if ($tarefas == null) {
                     ?>
-
-                    <tr>
-                        <td>
-                            <a href="dadosHistorico.php?idHistorico=<?= $tarefa['idHistorico'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
-                        </td>
-                        <td>
-                            <?= $tarefa['status'] ?>
-                        </td>
-                        <td>
-                            <form class="" action="../Controller/historicoController.php" method="post">
-                                <input type="hidden" name="idTarefa" value="<?= $tarefa['idTarefa'] ?>">
-                                <input type="hidden" name="funcionalidade" value="reavaliation">
-                                <button class="btn btn-primary"><span class="glyphicon glyphicon-send"></span></button>
-                            </form>
-                        </td>
-                    </tr>
-
+                    <td>
+                        Você não possui tarefas no momento.
+                    </td>
                     <?php
-                endforeach
+                } else {
+                    foreach ($tarefas as $tarefa) :
+                        ?>
+
+                        <tr>
+                            <td>
+                                <a href="dadosHistorico.php?idHistorico=<?= $tarefa['idHistorico'] ?> "><?= $tarefa['nomeTarefa'] ?></a>
+                            </td>
+                            <td>
+                                <?= $tarefa['status'] ?>
+                            </td>
+                            <td>
+                                <form class="" action="../Controller/historicoController.php" method="post">
+                                    <input type="hidden" name="idTarefa" value="<?= $tarefa['idTarefa'] ?>">
+                                    <input type="hidden" name="funcionalidade" value="reavaliation">
+                                    <button class="btn btn-primary"><span class="glyphicon glyphicon-send"></span>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+
+                        <?php
+                    endforeach;
+                }
                 ?>
             </table>
         </div>
